@@ -32,38 +32,6 @@ const useFireBase = () => {
         setDisplayName(n.target.value);
     }
 
-    const handleSignUp = (e) => {
-        e.preventDefault();
-        if (password.length < 6) {
-            setError("password should be at least 6 characters");
-            return false;
-        }
-        setError('')
-        createUserWithEmailAndPassword(auth, email, password, displayName)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                user.displayName = displayName;
-            }).catch((error) => {
-                const errorMessage = error.message;
-                setError(errorMessage)
-            });
-    }
-
-    const handleLogin = (e) => {
-        e.preventDefault();
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user)
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                setError(errorMessage)
-            });
-    }
-
     const handleGoogleSignIn = () => {
         const provider = new GoogleAuthProvider();
         const auth = getAuth();
@@ -84,7 +52,7 @@ const useFireBase = () => {
         });
     }
 
-    return { displayName, handleGoogleSignIn, signinUsingGithub, handleSignUp, emailHandle, passwordHandle, nameHandle, handleLogin, logOut, user, error, setError };
+    return { displayName, handleGoogleSignIn, signinUsingGithub, emailHandle, passwordHandle, nameHandle, logOut, user, error, email, password, setError };
 };
 
 export default useFireBase;

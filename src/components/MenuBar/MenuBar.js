@@ -15,7 +15,7 @@ const MenuBar = () => {
                     <div className="col-12 col-md-12 col-lg-8 d-lg-flex custom-link">
                         <Navbar bg="light" expand="lg" className="navbar-brand">
                             <Container fluid>
-                                <Navbar.Brand href=""><i class="fas fa-user-md"></i></Navbar.Brand>
+                                <Navbar.Brand href="">☀️🏞️🏖️</Navbar.Brand>
                                 <Navbar.Toggle aria-controls="navbarScroll" />
                                 <Navbar.Collapse id="navbarScroll">
                                     <Nav

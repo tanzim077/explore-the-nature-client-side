@@ -12,7 +12,6 @@ const OtherButtons = (props) => {
     const redirect_URL = location.state?.from || '/home';
 
     const handleGoogle = () => {
-        console.log("clicked");
         handleGoogleSignIn()
             .then((result) => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);

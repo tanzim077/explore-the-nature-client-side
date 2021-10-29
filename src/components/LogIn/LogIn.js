@@ -1,10 +1,31 @@
+import { getAuth, signInWithEmailAndPassword } from '@firebase/auth';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import OtherButtons from '../OtherButtons/OtherButtons';
 
 const LogIn = () => {
-    const { handleLogin, emailHandle, passwordHandle, error } = useAuth();
+    const { email, password, emailHandle, passwordHandle, error, setError } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_URL = location.state?.from || '/home';
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                history.push(redirect_URL);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setError(errorMessage)
+            });
+    }
+
 
     return (
         <div>

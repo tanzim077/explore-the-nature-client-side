@@ -1,11 +1,37 @@
+import { createUserWithEmailAndPassword, getAuth, updateProfile } from '@firebase/auth';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import OtherButtons from '../OtherButtons/OtherButtons';
 
 
 const Signup = () => {
-    const { error, handleSignUp, nameHandle, emailHandle, passwordHandle, setError } = useAuth()
+    const { displayName, error, email, password, nameHandle, emailHandle, passwordHandle, setError } = useAuth()
+
+    const auth = getAuth();
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_URL = location.state?.from || '/home';
+
+
+
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        if (password.length < 6) {
+            setError("password should be at least 6 characters");
+            return false;
+        }
+        setError('')
+        createUserWithEmailAndPassword(auth, email, password, displayName)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                history.push(redirect_URL)
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            });
+    }
 
     return (
         <div className="mx-3">
