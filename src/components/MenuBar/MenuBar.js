@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './MenuBar.css';
@@ -27,7 +27,11 @@ const MenuBar = () => {
                                         <Link to="/explore"><Nav.Link href="explore">Explore</Nav.Link></Link>
                                         <Link to="/package"><Nav.Link href="package">Package</Nav.Link></Link>
                                         <Link to="/schedule"><Nav.Link href="schedule">Scheduled</Nav.Link></Link>
-                                        <Link to="/admin"><Nav.Link href="admin">Admin</Nav.Link></Link>
+                                        <NavDropdown title="Admin" id="collasible-nav-dropdown">
+                                            <Link to="/createevent"><NavDropdown.Item href="createevent">Create Event</NavDropdown.Item></Link>
+                                            <Link to="/eventlist"><NavDropdown.Item href="eventlist">All Event</NavDropdown.Item></Link>
+                                            <Link to="/schedulelist"><NavDropdown.Item href="schedulelist">All Schedule</NavDropdown.Item></Link>
+                                        </NavDropdown>
                                     </Nav>
                                 </Navbar.Collapse>
                             </Container>
