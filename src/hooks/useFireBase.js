@@ -10,6 +10,7 @@ const useFireBase = () => {
     const [password, setPassword] = useState('');
     const [displayName, setDisplayName] = useState('');
     const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
 
@@ -18,7 +19,9 @@ const useFireBase = () => {
             if (user) {
                 setUser(user)
             }
-        });
+            setIsLoading(false)
+        }
+        );
     }, [])
 
     const emailHandle = e => {
@@ -33,6 +36,7 @@ const useFireBase = () => {
     }
 
     const handleGoogleSignIn = () => {
+        setIsLoading(true)
         const provider = new GoogleAuthProvider();
         const auth = getAuth();
         return signInWithPopup(auth, provider);
@@ -52,7 +56,7 @@ const useFireBase = () => {
         });
     }
 
-    return { displayName, handleGoogleSignIn, signinUsingGithub, emailHandle, passwordHandle, nameHandle, logOut, user, error, email, password, setError };
+    return { isLoading, setIsLoading, displayName, handleGoogleSignIn, signinUsingGithub, emailHandle, passwordHandle, nameHandle, logOut, user, error, email, password, setError };
 };
 
 export default useFireBase;

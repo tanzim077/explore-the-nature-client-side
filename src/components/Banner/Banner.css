@@ -1,0 +1,25 @@
+.banner-left{
+    background-color: #fcf2f2;
+}
+
+.banner-right {
+    background: url('../../images/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 190px 0px 135px 0px;
+}
+
+.banner{
+    font-size: 60px;
+    background-color: #fcf2f2;
+}
+
+.banner_main h1{
+    color :rgb(26, 121, 40)
+}
+.banner_main h2 {
+    color: rgb(0, 81, 255);
+}
+.banner_main h3{
+    color :rgb(49, 21, 3)
+}

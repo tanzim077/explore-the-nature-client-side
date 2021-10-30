@@ -2,22 +2,25 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 const CreateEvent = () => {
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
 
-    // /events/create
+    const history = useHistory();
 
     
     useEffect(() => {
         axios.get('http://localhost:9999/events')
-        console.log("Get");
     }, [])
 
     const onSubmit = data => {
-        console.log(data);
         axios.post('http://localhost:9999/events/create', data)
-        alert("Inserted successfully");
+            .then(alert("Inserted successfully"))
+            .then(() => {
+                reset();
+                history.push('/events')
+            })
 
     }
 

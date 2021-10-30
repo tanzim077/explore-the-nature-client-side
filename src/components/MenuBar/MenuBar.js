@@ -24,9 +24,8 @@ const MenuBar = () => {
                                         navbarScroll
                                     >
                                         <Link to="/home"><Nav.Link href="home">Home</Nav.Link></Link>
-                                        <Link to="/explore"><Nav.Link href="explore">Explore</Nav.Link></Link>
-                                        <Link to="/package"><Nav.Link href="package">Package</Nav.Link></Link>
-                                        <Link to="/schedule"><Nav.Link href="schedule">Scheduled</Nav.Link></Link>
+                                        <Link to="/events"><Nav.Link href="events">Events</Nav.Link></Link>
+                                        <Link to="/myschedule"><Nav.Link href="schedule">My Schedule</Nav.Link></Link>
                                         <NavDropdown title="Admin" id="collasible-nav-dropdown">
                                             <Link to="/createevent"><NavDropdown.Item href="createevent">Create Event</NavDropdown.Item></Link>
                                             <Link to="/eventlist"><NavDropdown.Item href="eventlist">All Event</NavDropdown.Item></Link>

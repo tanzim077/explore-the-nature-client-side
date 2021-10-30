@@ -6,7 +6,7 @@ import SingleEvent from '../SingleEvent/SingleEvent';
 
 const Event = () => {
     const [data] = useEventData();
-    const displaydata = data.slice(0, 3);
+    const displaydata = data.slice(0, 6);
 
     return (
         <div className="container mx-auto row py-5 text-center" >
@@ -14,7 +14,7 @@ const Event = () => {
             {
                 displaydata.map(singledata => <SingleEvent key={singledata.id} singledata={singledata}></SingleEvent>)
             }
-            <Link to='/doctors'><Button variant="warning">See All</Button></Link>
+            <Link to='/events'><Button variant="warning">See All</Button></Link>
         </div>
     );
 };

@@ -5,19 +5,23 @@ import { Link } from 'react-router-dom';
 import useEventData from '../../hooks/useEventData';
 
 const EventList = () => {
-    const [data,setData] = useEventData([]);
-    console.log(data);
-    
-    var i = 1
-    
+    const [data, setData] = useEventData([]);
+
+    var i = 1;
+
+
+
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:9999/events/${id}`)
-            .then(res => {
-                if (res.data.deletedCount > 0) {
-                    const remainingEvent = data.filter(m => m._id !== id)
-                    setData(remainingEvent);
-                }
-            })
+        const proceed = window.confirm("Are you sure to delete?")
+        if (proceed) {
+            axios.delete(`http://localhost:9999/events/${id}`)
+                .then(res => {
+                    if (res.data.deletedCount > 0) {
+                        const remainingEvent = data.filter(m => m._id !== id)
+                        setData(remainingEvent);
+                    }
+                })
+        }
     }
 
     return (
@@ -32,6 +36,7 @@ const EventList = () => {
                         <th>Approximate Cost</th>
                         <th>Starting Date</th>
                         <th>Ending Date</th>
+                        <th>Details</th>
                         <th>Update</th>
                         <th>Delete</th>
 
@@ -49,7 +54,10 @@ const EventList = () => {
                                 <td>{e.start_date}</td>
                                 <td>{e.end_date}</td>
                                 <td>
-                                     <Link to={`/eventupdate/${e._id}`}><Button variant="info">Update</Button></Link>
+                                    <Link to={`/eventupdate/${e._id}`}><Button variant="info">Details</Button></Link>
+                                </td>
+                                <td>
+                                    <Link to={`/eventupdate/${e._id}`}><Button variant="warning">Update</Button></Link>
                                 </td>
                                 <td><Button onClick={() => handleDelete(e._id)} variant="danger">Delete</Button></td>
                             </tr>

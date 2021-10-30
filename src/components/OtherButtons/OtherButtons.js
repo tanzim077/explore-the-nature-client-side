@@ -6,7 +6,7 @@ import { useHistory, useLocation } from 'react-router';
 
 
 const OtherButtons = (props) => {
-    const { handleGoogleSignIn, signinUsingGithub } = useAuth()
+    const { handleGoogleSignIn, signinUsingGithub, setIsLoading } = useAuth()
     const location = useLocation();
     const history = useHistory();
     const redirect_URL = location.state?.from || '/home';
@@ -23,6 +23,8 @@ const OtherButtons = (props) => {
                 const errorMessage = error.message;
                 const email = error.email;
                 const credential = GoogleAuthProvider.credentialFromError(error);
+            }).finally(() => {
+                setIsLoading(false)
             });
     }
     const handleGitHub = () => {
