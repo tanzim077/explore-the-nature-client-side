@@ -21,9 +21,9 @@ const Footer = () => {
                                 <ul className="link_menu">
                                     <Link to='/'><li><a href="#">Home</a></li>
                                     </Link>
-                                    <Link to='/aboutus'><li><a href="about"> About Us</a></li></Link>
                                     <Link to='/events'> <li><a href="events">Events</a></li></Link>
-                                    <Link to='/goal'> <li><a href="goal">Our Goals</a></li></Link>
+                                    <li><a href="#"> About Us</a></li>
+                                    <li><a href="#">Our Goals</a></li>
                                 </ul>
                             </div>
                             <div className=" col-md-3">
@@ -34,15 +34,15 @@ const Footer = () => {
                             </div>
                             <div className="col-lg-3 offset-md-lg-2 col-md-4 offset-md-1">
                                 <h3>Contact </h3>
-                                <ul className="container">
-                                    <li><i className="fa fa-map-marker" aria-hidden="true"></i> Location</li>
-                                    <li> <i className="fa fa-envelope" aria-hidden="true"></i><a href="#"> demo@gmail.com</a></li>
-                                    <li><i className="fa fa-mobile" aria-hidden="true"></i> Call : +01 1234567890</li>
+                                <ul className="social-link">
+                                    <li><i className="fa fa-map-marker" aria-hidden="true"></i> Dhaka, Bangladesh</li>
+                                    <li> <i className="fa fa-envelope" aria-hidden="true"></i><a > admin1@gmail.com</a></li>
+                                    <li><i className="fa fa-mobile" aria-hidden="true"></i> Call : +01123456789</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </footer>
         </div>

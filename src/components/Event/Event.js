@@ -10,7 +10,7 @@ const Event = () => {
 
     return (
         <div className="container mx-auto row py-5 text-center" >
-            <h1>Event List</h1>
+            <h1>All Upcoming Events </h1>
             {
                 displaydata.map(singledata => <SingleEvent key={singledata.id} singledata={singledata}></SingleEvent>)
             }

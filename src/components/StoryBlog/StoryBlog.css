@@ -13,7 +13,7 @@
 .card:hover {
     transition: 200ms;
     border: 3px;
-    border-color: rgb(71, 129, 255);
+    border-color: rgb(171, 175, 182);
     border-style: solid;
 }
 
@@ -52,8 +52,16 @@
     margin-top: 0;
 }
 
+.card-subtitle {
+    flex: 0.5;
+    font-size: medium;
+    margin-bottom: 0;
+    margin-top: 0;
+}
 
-
+.custom-1{
+    color:rgb(187, 60, 10)
+}
 .card-date {
     flex: 0.3;
     font-size: small;
@@ -63,6 +71,7 @@
 .card-image {
     border-radius: 10px;
     margin-bottom: 10px;
+    height: 300px;
     margin-top: 10px;
 }
 
@@ -73,6 +82,7 @@
 .card-text {
     /* width: 350px; */
     font-size: medium;
+    text-align: justify;
 }
 
 .card-like-bar {

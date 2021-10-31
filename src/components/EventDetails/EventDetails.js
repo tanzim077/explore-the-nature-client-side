@@ -35,9 +35,9 @@ const EventDetails = () => {
 
                 <div className="card-header gap-3 justify-content-between">
                     <div className="card-title-group">
-                        <h5 className="card-title">{from} to {destination}</h5>
-                        <div className="card-subtitle pt-2">Date: {start_date} to {end_date}</div>
-                        <div className="card-subtitle pt-1">Journey Start: {start_time}</div>
+                        <h3 className="card-title">{from} to {destination}</h3>
+                        <h5 className="card-subtitle pt-2">Date: <span className="custom-1">{start_date} to {end_date}</span></h5>
+                        <h5 className="card-subtitle pt-1">Journey Start: <span className="custom-1">{start_time}</span></h5>
                     </div>
                     <div>
                         <p className="cost">{cost} ৳ </p>
@@ -47,7 +47,7 @@ const EventDetails = () => {
                 <img className="event-image" src={image} alt="Logo" />
                 <div className="card-text">{description}</div>
                 <hr />
-                <div className="card-text">{extra}</div>
+                <h5 className="card-text">Tags: {extra}</h5>
 
             </div>
             <div className="container">

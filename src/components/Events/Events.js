@@ -20,12 +20,12 @@ const Events = () => {
                                 <Card.Subtitle >{data.from} to {data.destination}</Card.Subtitle>
                                 <br />
                                 <Card.Subtitle >{data.start_date} at {data.start_time} </Card.Subtitle>
-                                <Card.Subtitle >Approximate Cost:  {data.cost} </Card.Subtitle>
+                                <Card.Subtitle >Cost:  {data.cost} </Card.Subtitle>
                                 <hr />
                                 <Card.Text>
                                     {data.description}
                                 </Card.Text>
-                                <Link to={`/eventdetails/${data._id}`}><Button variant="primary">Confirm Schedule</Button></Link>
+                                <Link to={`/eventdetails/${data._id}`}><Button className="confirm"><i class="fas event-icon fa-calendar-plus">&nbsp;</i>Confirm Schedule</Button></Link>
                             </Card.Body>
                         </Card>
                     </div>

@@ -28,8 +28,8 @@
      text-transform: uppercase;
      transition: 0.5s;
  }
- .fas{
-     color:rgb(8, 223, 37)
+ .event-icon {
+     color:rgb(41, 247, 0)
  }
  .cost{
      color: rgb(36, 10, 109);

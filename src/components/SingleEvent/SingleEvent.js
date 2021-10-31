@@ -11,11 +11,11 @@ const SingleEvent = (props) => {
                 <Card.Img style={{ width: '100%', height: '12rem' }} src={image} />
                 <Card.Body>
                     <Card.Title className="big">{eventName}</Card.Title>
-                    <Card.Text className="small" ><i class="fas fa-map-marker-alt"></i> &nbsp; {from} to {destination} &nbsp; <i class="fas fa-flag-checkered"></i></Card.Text>
-                    <Card.Text><i class="far fa-calendar-alt"></i>  &nbsp; {start_date} to  {end_date}</Card.Text>
+                    <Card.Text className="small" ><i class="fas event-icon fa-map-marker-alt"></i> &nbsp; {from} to {destination} &nbsp; <i class="fas event-icon fa-flag-checkered"></i></Card.Text>
+                    <Card.Text><i class="far event-icon fa-calendar-alt"></i>  &nbsp; {start_date} to  {end_date}</Card.Text>
                     <Card.Text className="description">{description.slice(0, 100)}....</Card.Text>
                     <div className="d-flex justify-content-between">
-                        <Link to={`/eventdetails/${_id}`}><Button className="confirm"><i class="fas fa-calendar-plus">&nbsp;</i> Confirm Schedule</Button></Link>
+                        <Link to={`/eventdetails/${_id}`}><Button className="confirm"><i class="fas event-icon fa-calendar-plus">&nbsp;</i> Confirm Schedule</Button></Link>
                         <Card.Text className="cost my-auto"> <h4>{cost} ৳</h4> </Card.Text>
 
                     </div>
