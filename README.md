@@ -1,4 +1,4 @@
-# Explore The Nature (client Side)
+# Explore The Nature (Client Side)
 
 ## An online tour management web application
 
