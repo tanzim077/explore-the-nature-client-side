@@ -5,7 +5,7 @@ const useScheduleData = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:9999/schedules')
+        axios.get('https://evil-spirit-24673.herokuapp.com/schedules')
             .then(result => {
                 setData(result.data.schedules);
             })

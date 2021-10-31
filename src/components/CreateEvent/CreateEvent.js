@@ -9,13 +9,13 @@ const CreateEvent = () => {
 
     const history = useHistory();
 
-    
+
     useEffect(() => {
-        axios.get('http://localhost:9999/events')
+        axios.get('https://evil-spirit-24673.herokuapp.com/events')
     }, [])
 
     const onSubmit = data => {
-        axios.post('http://localhost:9999/events/create', data)
+        axios.post('https://evil-spirit-24673.herokuapp.com/events/create', data)
             .then(alert("Inserted successfully"))
             .then(() => {
                 reset();

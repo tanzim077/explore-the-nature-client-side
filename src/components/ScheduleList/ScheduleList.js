@@ -6,13 +6,13 @@ import useScheduleData from '../../hooks/useScheduleData';
 
 const ScheduleList = () => {
     const [data, setData] = useScheduleData([]);
-   
+
     var i = 0;
 
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure to delete?")
         if (proceed) {
-            axios.delete(`http://localhost:9999/schedules/${id}`)
+            axios.delete(`https://evil-spirit-24673.herokuapp.com/schedules/${id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
                         const remainingSchedule = data.filter(d => d._id !== id)

@@ -10,7 +10,7 @@ const EventUpdate = () => {
     const history = useHistory();
 
     useEffect(() => {
-        axios.get(`http://localhost:9999/events/${id}`)
+        axios.get(`https://evil-spirit-24673.herokuapp.com/events/${id}`)
             .then(function (response) {
                 setEvent(response.data);
             })
@@ -79,10 +79,10 @@ const EventUpdate = () => {
 
 
     const handleUpdate = (data) => {
-        axios.put(`http://localhost:9999/events/${id}`, event)
+        axios.put(`https://evil-spirit-24673.herokuapp.com/events/${id}`, event)
             .then(res => alert("Update Successfully"))
             .then(setEvent({}))
-            .then(() =>  history.push('/eventlist'))
+            .then(() => history.push('/eventlist'))
         data.preventDefault();
     }
 

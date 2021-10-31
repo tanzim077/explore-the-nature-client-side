@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 
 const useEventData = () => {
     const [data, setData] = useState([]);
-    
+
     useEffect(() => {
-        axios.get('http://localhost:9999/events')
+        axios.get('https://evil-spirit-24673.herokuapp.com/events')
             .then(result => {
                 setData(result.data.events);
             })

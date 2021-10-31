@@ -16,13 +16,13 @@ const EventDetails = () => {
     const { cost, description, destination, end_date, eventName, extra, from, image, start_date, start_time } = event;
     const onSubmit = (data) => {
         const bookingData = { ...data, cost, description, destination, end_date, eventName, extra, from, image, start_date, start_time }
-        axios.post('http://localhost:9999/schedules/create', bookingData)
+        axios.post('https://evil-spirit-24673.herokuapp.com/schedules/create', bookingData)
             .then(alert("Inserted successfully"))
             .then(history.push('/myschedule'))
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:9999/events/${id}`)
+        axios.get(`https://evil-spirit-24673.herokuapp.com/events/${id}`)
             .then(function (response) {
                 setEvent(response.data);
             })

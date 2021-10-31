@@ -8,10 +8,10 @@ const ScheduleUpdate = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`http://localhost:9999/schedules/${id}`)
+        axios.get(`https://evil-spirit-24673.herokuapp.com/schedules/${id}`)
             .then(function (response) {
                 setSchedule(response.data);
-              
+
             })
     }, [])
 
@@ -47,7 +47,7 @@ const ScheduleUpdate = () => {
 
 
     const handleUpdate = (data) => {
-        axios.put(`http://localhost:9999/schedules/${id}`, schedule)
+        axios.put(`https://evil-spirit-24673.herokuapp.com/schedules/${id}`, schedule)
             .then(res => alert("Update Successfully"))
             .then(setSchedule({}))
             .then(() => history.push('/myschedule'))

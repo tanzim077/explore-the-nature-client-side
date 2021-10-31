@@ -5,7 +5,7 @@ import axios from 'axios';
 const useStoryBlog = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:9999/storyblogs')
+        axios.get('https://evil-spirit-24673.herokuapp.com/storyblogs')
             .then(result => {
                 setData(result.data.storyBlog);
                 // console.log(result);
