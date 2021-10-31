@@ -14,8 +14,9 @@ const EventDetails = () => {
     const [event, setEvent] = useState({});
 
     const { cost, description, destination, end_date, eventName, extra, from, image, start_date, start_time } = event;
+    const userStatus = "pending";
     const onSubmit = (data) => {
-        const bookingData = { ...data, cost, description, destination, end_date, eventName, extra, from, image, start_date, start_time }
+        const bookingData = { ...data, userStatus, cost, description, destination, end_date, eventName, extra, from, image, start_date, start_time }
         axios.post('https://evil-spirit-24673.herokuapp.com/schedules/create', bookingData)
             .then(alert("Inserted successfully"))
             .then(history.push('/myschedule'))

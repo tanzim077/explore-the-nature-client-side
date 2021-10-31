@@ -5,11 +5,7 @@ import SingleStory from '../SingleStory/SingleStory';
 
 const StoryBlog = () => {
     const [data] = useStoryBlog();
-    console.log(data)
-    data.map(data => {
-        console.log(data.storyAuthor)
 
-    })
     return (
         <div>
             <h1 className="tile text-center pt-4" >Traveller's Story</h1>
@@ -19,7 +15,7 @@ const StoryBlog = () => {
                 }
             </div>
         </div>
-            )
+    )
 
 };
 

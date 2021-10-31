@@ -1,13 +1,20 @@
 import axios from 'axios';
 import React from 'react';
 import { Button, Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useScheduleData from '../../hooks/useScheduleData';
 
 const ScheduleList = () => {
     const [data, setData] = useScheduleData([]);
-
     var i = 0;
+
+    const handleStatus = (id) => {
+        const remainData = data.find(d => d._id === id)
+        const { _id, ...newData } = remainData;
+        axios.put(`https://evil-spirit-24673.herokuapp.com/schedules/status/${id}`, newData)
+            .then(res => alert("Schedule Status Updated Successfully"))
+            .then(() => window.location.reload())
+    }
 
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure to delete?")
@@ -57,7 +64,14 @@ const ScheduleList = () => {
                                 <td>{d.cost}</td>
                                 <td>{d.start_date}</td>
                                 <td>
-                                    <Link to={`/scheduleStatus/${d._id}`}><Button variant="info">✅</Button></Link>
+                                    {
+
+                                        (d.userStatus === "pending") ?
+                                            <Button onClick={() => handleStatus(d._id)} variant="info">✅</Button>
+                                            :
+                                            <Button onClick={() => handleStatus(d._id)} variant="warning">❌</Button>
+                                    }
+
                                 </td>
                                 <td><Button onClick={() => handleDelete(d._id)} variant="danger">Delete</Button></td>
                             </tr>
@@ -65,7 +79,7 @@ const ScheduleList = () => {
                     }
                 </tbody>
             </Table>
-        </div>
+        </div >
     );
 };
 

@@ -4,7 +4,6 @@ import Banner from '../Banner/Banner';
 import Event from '../Event/Event'
 import Footer from '../Footer/Footer';
 import StoryBlog from '../StoryBlog/StoryBlog';
-import food from "../../images/food.jpg";
 
 const Home = () => {
 

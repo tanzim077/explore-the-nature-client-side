@@ -1,5 +1,4 @@
 import React from 'react';
-import food from "../../images/food.jpg";
 import heartOutline from "../../images/heart-outline.png";
 import heartFill from "../../images/heart-fill.png";
 
