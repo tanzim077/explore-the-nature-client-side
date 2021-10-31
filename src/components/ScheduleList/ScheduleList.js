@@ -67,9 +67,9 @@ const ScheduleList = () => {
                                     {
 
                                         (d.userStatus === "pending") ?
-                                            <Button onClick={() => handleStatus(d._id)} variant="info">✅</Button>
+                                            <Button onClick={() => handleStatus(d._id)} variant="info">Accept ✅</Button>
                                             :
-                                            <Button onClick={() => handleStatus(d._id)} variant="warning">❌</Button>
+                                            <Button onClick={() => handleStatus(d._id)} variant="warning">Reject ❌</Button>
                                     }
 
                                 </td>

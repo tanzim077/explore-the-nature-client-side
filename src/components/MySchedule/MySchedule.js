@@ -67,12 +67,9 @@ const MySchedule = () => {
                                 <td>{d.start_date}</td>
                                 {
                                     (d.userStatus === "pending") ?
-                                        <td>pending</td> :
-                                        <td>Ok</td>
+                                        <td>Pending</td> :
+                                        <td>Confirmed</td>
                                 }
-                                {/* <td>
-                                    <Link to={`/scheduleStatus/${d._id}`}><Button variant="info">✅</Button></Link>
-                                </td> */}
                                 <td>
                                     <Link to={`/scheduleupdate/${d._id}`}><Button variant="warning">Update</Button></Link>
                                 </td>

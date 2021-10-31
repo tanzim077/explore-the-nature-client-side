@@ -9,8 +9,6 @@ const EventList = () => {
 
     var i = 1;
 
-
-
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure to delete?")
         if (proceed) {
@@ -29,14 +27,13 @@ const EventList = () => {
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>SL.</th>
                         <th>Event Name</th>
                         <th>Starting Place</th>
                         <th>Ending Place</th>
                         <th>Approximate Cost</th>
                         <th>Starting Date</th>
                         <th>Ending Date</th>
-                        <th>Details</th>
                         <th>Update</th>
                         <th>Delete</th>
 
@@ -53,9 +50,7 @@ const EventList = () => {
                                 <td>{e.cost}</td>
                                 <td>{e.start_date}</td>
                                 <td>{e.end_date}</td>
-                                <td>
-                                    <Link to={`/eventupdate/${e._id}`}><Button variant="info">Details</Button></Link>
-                                </td>
+                                
                                 <td>
                                     <Link to={`/eventupdate/${e._id}`}><Button variant="warning">Update</Button></Link>
                                 </td>
