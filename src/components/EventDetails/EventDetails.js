@@ -1,28 +1,24 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import useEventData from '../../hooks/useEventData';
 import useAuth from '../../hooks/useAuth';
 import { Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory, useParams } from 'react-router-dom';
+import './EventDetails.css';
 
 const EventDetails = () => {
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const { id } = useParams();
     const { user } = useAuth();
     const history = useHistory();
-
-
-
     const [event, setEvent] = useState({});
 
-    const { cost, description, destination, end_date, eventName, extra, from, image, start_date, start_time } = event
+    const { cost, description, destination, end_date, eventName, extra, from, image, start_date, start_time } = event;
     const onSubmit = (data) => {
         const bookingData = { ...data, cost, description, destination, end_date, eventName, extra, from, image, start_date, start_time }
         axios.post('http://localhost:9999/schedules/create', bookingData)
             .then(alert("Inserted successfully"))
             .then(history.push('/myschedule'))
-
     }
 
     useEffect(() => {
@@ -34,22 +30,24 @@ const EventDetails = () => {
 
     return (
         <div className="container d-lg-flex">
-            <div className="container">
-                <img className="img-fluid" src={event.image} alt="" />
-                <div>
-                    <h1>Event Name :{event.eventName}</h1>
-                    <h3>Starting Point: {event.from}</h3>
-                    <h3>Ending Point: {event.destination}</h3>
-                    <h3>Tour Date: {event.start_date}</h3>
-                    <h3>Return Date: {event.end_date}</h3>
-                    <h3>Starting Time: {event.start_time}</h3>
-                    <h3>Cost: {event.cost}</h3>
-                </div>
-                <div className="d-lg-flex">
-                    <p>{event.description}</p>
+            <div className="card col-lg-6 ">
+                <h5 className="event-title">{eventName}</h5>
 
+                <div className="card-header gap-3 justify-content-between">
+                    <div className="card-title-group">
+                        <h5 className="card-title">{from} to {destination}</h5>
+                        <div className="card-subtitle pt-2">Date: {start_date} to {end_date}</div>
+                        <div className="card-subtitle pt-1">Journey Start: {start_time}</div>
+                    </div>
+                    <div>
+                        <p className="cost">{cost} ৳ </p>
+                    </div>
                 </div>
 
+                <img className="event-image" src={image} alt="Logo" />
+                <div className="card-text">{description}</div>
+                <hr />
+                <div className="card-text">{extra}</div>
 
             </div>
             <div className="container">
@@ -87,7 +85,7 @@ const EventDetails = () => {
 
                 </form>
             </div>
-        </div>
+        </div >
     );
 };
 

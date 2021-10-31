@@ -1,0 +1,39 @@
+.eventName .big {
+    color: rgb(145, 41, 41);
+    font-size: 1.7rem;
+    margin-right: 10px;
+    line-height: 1;
+}
+
+ .eventName .small {
+     color: rgb(126, 15, 15);
+     font-weight: 500;
+     margin-top: 3px;
+     text-transform: capitalize;
+ }
+
+ .eventName {
+     text-align: center;
+ }
+
+ .description{
+     text-align: justify;
+ }
+ .confirm{
+     background-color: rgb(40, 44, 44);
+     font-size: 1rem;
+     font-weight: 400;
+     padding: 0.7rem .5rem;
+     text-decoration: none;
+     text-transform: uppercase;
+     transition: 0.5s;
+ }
+ .fas{
+     color:rgb(8, 223, 37)
+ }
+ .cost{
+     color: rgb(36, 10, 109);
+     display: flex;
+      font-size: 2rem;
+      font-weight: 900;
+ }

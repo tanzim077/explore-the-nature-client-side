@@ -1,22 +1,24 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './SingleEvent.css'
 
 const SingleEvent = (props) => {
-    const { _id, eventName, image, from, destination, description, cost, start_date } = props.singledata;
+    const { _id, eventName, image, from, destination, description, cost, start_date, end_date } = props.singledata;
     return (
-        <div className=" col-lg-4 p-2">
+        <div className=" eventName col-lg-4 p-2">
             <Card className="p-2" style={{ width: '22rem', height: '30em' }}>
                 <Card.Img style={{ width: '100%', height: '12rem' }} src={image} />
                 <Card.Body>
-                    <Card.Title>Event Name : {eventName}</Card.Title>
-                    <Card.Text><i class="fas fa-map-marker-alt"></i> &nbsp; {from} to {destination} &nbsp; <i class="fas fa-flag-checkered"></i></Card.Text>
+                    <Card.Title className="big">{eventName}</Card.Title>
+                    <Card.Text className="small" ><i class="fas fa-map-marker-alt"></i> &nbsp; {from} to {destination} &nbsp; <i class="fas fa-flag-checkered"></i></Card.Text>
+                    <Card.Text><i class="far fa-calendar-alt"></i>  &nbsp; {start_date} to  {end_date}</Card.Text>
+                    <Card.Text className="description">{description.slice(0, 100)}....</Card.Text>
                     <div className="d-flex justify-content-between">
-                    <Card.Text>Cost : {cost} ৳ </Card.Text>
-                        <Card.Text><i class="far fa-calendar-alt"></i>  &nbsp; Tour Date : {start_date}</Card.Text>
+                        <Link to={`/eventdetails/${_id}`}><Button className="confirm"><i class="fas fa-calendar-plus">&nbsp;</i> Confirm Schedule</Button></Link>
+                        <Card.Text className="cost my-auto"> <h4>{cost} ৳</h4> </Card.Text>
+
                     </div>
-                    <Card.Text>{description.slice(0,100)}....</Card.Text>
-                    <Link to={`/eventdetails/${_id}`}><Button variant="primary">Confirm Schedule</Button></Link>
                 </Card.Body>
             </Card>
         </div>
