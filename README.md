@@ -1,19 +1,8 @@
-# Explore The Nature (Client Side)
+# React + Vite
 
-## An online tour management web application
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-A tour management application where users can check the upcoming events of different tourist groups and confirm his/ her booking for joining with them. Users can see all of his / her schedules and also see the status of his / her booking is confirmed or not. Admin (login user) can check all the schedule and admin have the power to add update and delete any event.
+Currently, two official plugins are available:
 
-Some Features for this application:
-
-- Using Mongo DB for store data and booking schedules.
-- Use Firebase Authentication.
-- Email Password authentications, along with Google, and GitHub authentication system.
-- Using the dynamic route.
-- View update and delete Schedule.
-- Using React player for playing youtube videos.
-- Redirect to the login page.
-- Context API for firebase login system access.
-
-Live Site Link: https://explore-nature-39d31.web.app/
-Server Side: https://github.com/tanzim077/explore-the-nature-server-side
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

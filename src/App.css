@@ -1,10 +1,7 @@
-.mainBody {
-  font-family: 'Roboto Slab',
-    serif;
-  background-color: rgb(239 240 240);
-  ;
-}
-
-h1{
-  color: tomato;
+#root {
+  width: 100vw;
+  /* height: 100vh; */
+  margin: 0;
+  padding: 0rem;
+  font-family: "Nunito", sans-serif;
 }
