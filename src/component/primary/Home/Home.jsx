@@ -10,26 +10,43 @@ import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import React from "react";
 import EventCard from "../../shared/EventCard/EventCard";
+import Footer from "../../shared/Footer/Footer";
 import NavBar from "../../shared/NavBar/NavBar";
+import AboutUs from "../AboutUs/AboutUs";
 const Home = () => {
   return (
     <>
-      <Box sx={{ mx: 0, height: "10vh" }}>
-        <NavBar />
-      </Box>
-      <Box sx={{ height: "90vh" }}>
+      <br />
+      <Box>
         <Typography variant="cst_h3" textAlign="center">
           All Upcoming Events
         </Typography>
 
         <br />
-        <Grid sx={{ display: "flex" }} spacing={0} container gap={0}>
+        <Grid container gap={0} spacing={0}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-            <Grid xs={3} key={item} sx={{ display: "flex", justifyContent: "center" }}>
-              <EventCard />
+            <Grid xs={3} key={item} sx={{ display: "flex", justifyContent: "center", pb: 4 }}>
+              <EventCard event={item}/>
             </Grid>
           ))}
         </Grid>
+      </Box>
+      <br />
+      <Box>
+        <Typography variant="cst_h3" textAlign="center">
+          About Us
+        </Typography>
+        <br />
+        <Box sx={{ px: 6 }}>
+          <AboutUs />
+        </Box>
+      </Box>
+      <br />
+      <Box>
+        <br />
+        <Box sx={{ px: 0 }}>
+          <Footer />
+        </Box>
       </Box>
     </>
   );

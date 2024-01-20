@@ -14,8 +14,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function EventCard() {
+export default function EventCard({ event }) {
+  const navigate = useNavigate();
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -35,7 +37,7 @@ export default function EventCard() {
       </CardContent>
       <CardActions>
         <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button onClick={()=>navigate(`/event-details/${event}`)} size="small">Learn More</Button>
       </CardActions>
     </Card>
   );

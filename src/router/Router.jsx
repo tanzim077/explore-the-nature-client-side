@@ -8,6 +8,9 @@
  */
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AboutUs from "../component/primary/AboutUs/AboutUs";
+import ErrorPage from "../component/primary/ErrorPage/ErrorPage";
+import EventDetails from "../component/primary/EventDetails/EventDetails";
 import Home from "../component/primary/Home/Home";
 
 const Router = () => {
@@ -15,6 +18,18 @@ const Router = () => {
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path: "/about-us",
+      element: <AboutUs />,
+    },
+    {
+      path: "/event-details/:id",
+      element: <EventDetails />,
+    },
+    {
+      path: "*",
+      element: <ErrorPage />,
     },
   ]);
   return (
