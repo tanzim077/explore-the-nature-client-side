@@ -20,18 +20,13 @@ export default function EventCard({ event }) {
   return (
     <Card sx={{ maxWidth: "390px", display: "flex", m: 2 }}>
       <CardActionArea>
-        <CardMedia
-          sx={{ minHeight: "400px" }}
-          component={"img"}
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb9B7ufjFJOLyOSzG0izAqTCGiNNgNPn1sqQ&usqp=CAU"
-          alt="test"
-        />
+        <CardMedia sx={{ minHeight: "400px" }} component={"img"} src={event?.coverImages[0]} alt={event?.title} />
         <CardContent>
           <Typography variant="h5" gutterBottom component={"div"}>
-            {"lorem ipsum"}
+            {event?.title}
           </Typography>
           <Typography variant="body2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, maiores?
+            {event.description.length > 100 ? event.description.slice(0, 100) + "..." : event.description}
           </Typography>
         </CardContent>
         <CardActions>

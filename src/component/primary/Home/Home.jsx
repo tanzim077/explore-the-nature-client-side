@@ -9,11 +9,14 @@
 import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import React from "react";
+import { useGetAllEventsQuery } from "../../../redux/api/event.api.slice";
 import EventCard from "../../shared/EventCard/EventCard";
 import Footer from "../../shared/Footer/Footer";
-import NavBar from "../../shared/NavBar/NavBar";
+import CardSkeleton from "../../shared/Skeleton/CardSkeleton";
 import AboutUs from "../AboutUs/AboutUs";
 const Home = () => {
+  const { data: events, isLoading, isError } = useGetAllEventsQuery();
+
   return (
     <>
       <br />
@@ -24,9 +27,9 @@ const Home = () => {
 
         <br />
         <Grid container gap={0} spacing={0}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-            <Grid xs={3} key={item} sx={{ display: "flex", justifyContent: "center", pb: 4 }}>
-              <EventCard event={item}/>
+          {events?.map((event) => (
+            <Grid xs={3} key={event._id} sx={{ display: "flex", justifyContent: "center", pb: 4 }}>
+              {isLoading ? <CardSkeleton /> : <EventCard event={event} />}
             </Grid>
           ))}
         </Grid>
