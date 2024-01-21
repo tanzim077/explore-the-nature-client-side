@@ -12,20 +12,43 @@ import AboutUs from "../component/primary/AboutUs/AboutUs";
 import ErrorPage from "../component/primary/ErrorPage/ErrorPage";
 import EventDetails from "../component/primary/EventDetails/EventDetails";
 import Home from "../component/primary/Home/Home";
+import NavBar from "../component/shared/NavBar/NavBar";
 
 const Router = () => {
+  // eslint-disable-next-line react/prop-types
+  const WithNavBar = ({ children }) => {
+    return (
+      <>
+        <NavBar />
+        {children}
+      </>
+    );
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: (
+        <WithNavBar>
+          <Home />
+        </WithNavBar>
+      ),
     },
     {
       path: "/about-us",
-      element: <AboutUs />,
+      element: (
+        <WithNavBar>
+          <AboutUs />
+        </WithNavBar>
+      ),
     },
     {
       path: "/event-details/:id",
-      element: <EventDetails />,
+      element: (
+        <WithNavBar>
+          <EventDetails />
+        </WithNavBar>
+      ),
     },
     {
       path: "*",

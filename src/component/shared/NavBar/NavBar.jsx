@@ -24,6 +24,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { alpha, styled } from "@mui/material/styles";
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -65,7 +66,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const NavLink = styled(Typography)(({ theme }) => ({
+  color: theme.palette.common.white,
+  marginRight: theme.spacing(2),
+  cursor: "pointer",
+  "&:hover": {
+    color: "#d3d3d3",
+    textDecoration: "underline",
+  },
+}));
+
 export default function NavBar() {
+  const navigate = useNavigate();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -108,6 +121,7 @@ export default function NavBar() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
     </Menu>
   );
 
@@ -176,28 +190,39 @@ export default function NavBar() {
             <StyledInputBase placeholder="Search…" inputProps={{ "aria-label": "search" }} />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: "flex", gap: 3 }}>
+            <NavLink variant="cst_h6" onClick={() => navigate("/")}>
+              Home
+            </NavLink>
+            <NavLink variant="cst_h6" onClick={() => navigate("/all-events")}>
+              Events
+            </NavLink>
+            <NavLink variant="cst_h6" onClick={() => navigate("/about-us")}>
+              About Us
+            </NavLink>
+          </Box>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton size="large" aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+            {true ? ( //TODO login condition
+              <Box sx={{ display: "flex" }}>
+                <Typography variant="cst_h6">Sign In</Typography>
+              </Box>
+            ) : (
+              <Box>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+              </Box>
+            )}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
