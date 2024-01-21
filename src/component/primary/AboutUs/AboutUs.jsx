@@ -6,52 +6,115 @@
  *
  * Copyright (c) 2024 Tanzim Ahmed
  */
-import { Box, Typography } from "@mui/material";
+import CallIcon from "@mui/icons-material/Call";
+import MailIcon from "@mui/icons-material/Mail";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import {
+  Box,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 const AboutUs = () => {
   return (
-    <Box
-      sx={{
-        my: 5,
-        textAlign: "center",
-        px: 10,
-        "& h4": {
-          fontWeight: "bold",
-          my: 2,
-          fontSize: "2rem",
-        },
-        "& p": {
-          textAlign: "justify",
-        },
-        "@media (max-width:600px)": {
-          mt: 0,
-          "& h4 ": {
-            fontSize: "1.5rem",
+    <>
+      <Box
+        sx={{
+          my: 5,
+          textAlign: "center",
+          px: 10,
+          "& h4": {
+            fontWeight: "bold",
+            my: 2,
+            fontSize: "2rem",
           },
-        },
-      }}
-    >
-      <Typography variant="h4">Welcome To Explor the Nature</Typography>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat quod, suscipit, aperiam totam autem culpa cum
-        eveniet dolorum quasi est perspiciatis laborum. Nam recusandae nihil quia odio voluptatibus facere omnis facilis
-        rerum? Ab eum beatae nobis reiciendis, qui temporibus aliquid, nesciunt velit sed quam recusandae
-        necessitatibus, tempora maxime. Repellendus incidunt, maxime labore dolorum eos aperiam unde? At veritatis
-        nesciunt eos quas cupiditate blanditiis est quam maiores, amet, soluta exercitationem voluptatum, veniam
-        assumenda? Ratione perferendis officiis deserunt nostrum aspernatur sed asperiores! Earum sunt placeat ducimus
-        sint, deleniti amet esse saepe voluptatem commodi laudantium quibusdam repellat nobis libero at consectetur
-        adipisci ipsa.
-      </p>
-      <br />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, deserunt libero reprehenderit cum sint fugit
-        cumque temporibus modi facere eveniet amet obcaecati ducimus harum velit maxime vel qui voluptatibus quam odio
-        corrupti saepe, voluptas dolorum quidem tempore? Esse sapiente molestias minus enim quisquam dolorum eum culpa
-        ullam impedit velit quo, corporis ducimus numquam dignissimos inventore maiores. Nam deleniti itaque nostrum
-        neque dolorum dolores, aliquam, voluptatum sapiente doloribus laborum perspiciatis ipsam, quo ut nisi distinctio
-        sunt nihil est blanditiis perferendis eveniet nesciunt! Nostrum, voluptatum eveniet repellat vel officia
-        deleniti tempore voluptatibus perferendis esse eaque temporibus porro? Aspernatur beatae deleniti illo autem!
-      </p>
-    </Box>
+          "& p": {
+            textAlign: "justify",
+          },
+          "@media (max-width:600px)": {
+            mt: 0,
+            "& h4 ": {
+              fontSize: "1.5rem",
+            },
+          },
+        }}
+      >
+        <Typography variant="h4">Welcome To Explor the Nature</Typography>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat quod, suscipit, aperiam totam autem culpa cum
+          eveniet dolorum quasi est perspiciatis laborum. Nam recusandae nihil quia odio voluptatibus facere omnis
+          facilis rerum? Ab eum beatae nobis reiciendis, qui temporibus aliquid, nesciunt velit sed quam recusandae
+          necessitatibus, tempora maxime. Repellendus incidunt, maxime labore dolorum eos aperiam unde? At veritatis
+          nesciunt eos quas cupiditate blanditiis est quam maiores, amet, soluta exercitationem voluptatum, veniam
+          assumenda? Ratione perferendis officiis deserunt nostrum aspernatur sed asperiores! Earum sunt placeat ducimus
+          sint, deleniti amet esse saepe voluptatem commodi laudantium quibusdam repellat nobis libero at consectetur
+          adipisci ipsa.
+        </p>
+        <br />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, deserunt libero reprehenderit cum sint fugit
+          cumque temporibus modi facere eveniet amet obcaecati ducimus harum velit maxime vel qui voluptatibus quam odio
+          corrupti saepe, voluptas dolorum quidem tempore? Esse sapiente molestias minus enim quisquam dolorum eum culpa
+          ullam impedit velit quo, corporis ducimus numquam dignissimos inventore maiores. Nam deleniti itaque nostrum
+          neque dolorum dolores, aliquam, voluptatum sapiente doloribus laborum perspiciatis ipsam, quo ut nisi
+          distinctio sunt nihil est blanditiis perferendis eveniet nesciunt! Nostrum, voluptatum eveniet repellat vel
+          officia deleniti tempore voluptatibus perferendis esse eaque temporibus porro? Aspernatur beatae deleniti illo
+          autem!
+        </p>
+      </Box>
+      <Box sx={{ my: 5, ml: 10, "& h4": { fontWeight: "bold", mb: 2 } }}>
+        <Typography variant="h4">Contact With Us</Typography>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem odio beatae ducimus magni nobis culpa praesentium
+          velit expedita quae, corrupti, pariatur inventore laboriosam consectetur modi impedit error, repudiandae
+          obcaecati doloribus.
+        </p>
+      </Box>
+      <Box
+        sx={{
+          m: 3,
+          width: "600px",
+          ml: 10,
+          "@media (max-width:600px)": {
+            width: "300px",
+          },
+        }}
+      >
+        <TableContainer component={Paper}>
+          <Table aria-label="contact table">
+            <TableHead>
+              <TableRow>
+                <TableCell sx={{ bgcolor: "black", color: "white" }} align="center">
+                  Contact Details
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell>
+                  <SupportAgentIcon sx={{ color: "red", pt: 1 }} /> 1800-00-0000 (tollfree)
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  <MailIcon sx={{ color: "skyblue", pt: 1 }} /> help@exp.com
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  <CallIcon sx={{ color: "green", pt: 1 }} /> 1234567890
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
+    </>
   );
 };
 

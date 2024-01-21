@@ -206,7 +206,9 @@ export default function NavBar() {
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {true ? ( //TODO login condition
               <Box sx={{ display: "flex" }}>
-                <Typography variant="cst_h6">Sign In</Typography>
+                <NavLink variant="cst_h6" onClick={() => navigate("/sign-in")}>
+                  Sign In
+                </NavLink>
               </Box>
             ) : (
               <Box>

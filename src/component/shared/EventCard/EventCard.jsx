@@ -7,9 +7,8 @@
  * Copyright (c) 2024 Tanzim Ahmed
  */
 
-import Button from "@mui/material/Button";
+import { Button, CardActionArea, CardActions } from "@mui/material";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
@@ -19,26 +18,29 @@ import { useNavigate } from "react-router-dom";
 export default function EventCard({ event }) {
   const navigate = useNavigate();
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb9B7ufjFJOLyOSzG0izAqTCGiNNgNPn1sqQ&usqp=CAU"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents
-          except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button onClick={()=>navigate(`/event-details/${event}`)} size="small">Learn More</Button>
-      </CardActions>
+    <Card sx={{ maxWidth: "390px", display: "flex", m: 2 }}>
+      <CardActionArea>
+        <CardMedia
+          sx={{ minHeight: "400px" }}
+          component={"img"}
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb9B7ufjFJOLyOSzG0izAqTCGiNNgNPn1sqQ&usqp=CAU"
+          alt="test"
+        />
+        <CardContent>
+          <Typography variant="h5" gutterBottom component={"div"}>
+            {"lorem ipsum"}
+          </Typography>
+          <Typography variant="body2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, maiores?
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Share</Button>
+          <Button onClick={() => navigate(`/event-details/${event}`)} size="small">
+            Learn More
+          </Button>
+        </CardActions>
+      </CardActionArea>
     </Card>
   );
 }

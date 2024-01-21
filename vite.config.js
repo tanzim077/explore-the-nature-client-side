@@ -6,6 +6,9 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  optimizeDeps: {
+    include: ["@emotion/react", "@emotion/styled", "@mui/material"],
+  },
   plugins: [
     react({
       jsxImportSource: "@emotion/react",
@@ -14,7 +17,4 @@ export default defineConfig({
       },
     }),
   ],
-  optimizeDeps: {
-    include: ["@emotion/react", "@emotion/styled", "@mui/material/Tooltip"],
-  },
 });
