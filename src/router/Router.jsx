@@ -13,6 +13,7 @@ import ErrorPage from "../component/primary/ErrorPage/ErrorPage";
 import EventDetails from "../component/primary/EventDetails/EventDetails";
 import Home from "../component/primary/Home/Home";
 import SignIn from "../component/primary/SignIn/SignIn";
+import SignUp from "../component/primary/SignUp/SignUp";
 import NavBar from "../component/shared/NavBar/NavBar";
 
 const Router = () => {
@@ -48,6 +49,14 @@ const Router = () => {
       element: (
         <WithNavBar>
           <SignIn />
+        </WithNavBar>
+      ),
+    },
+    {
+      path: "/sign-up",
+      element: (
+        <WithNavBar>
+          <SignUp />
         </WithNavBar>
       ),
     },
