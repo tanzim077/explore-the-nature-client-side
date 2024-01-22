@@ -1,79 +1,107 @@
-/*
- * File           : typography.js
- * Project        : explore-the-nature-client-side
- * Created Date   : Sa 20 Jan 2024 12:11:47
- * Description    : <<description>>
- *
- *
- * Author         : Tanzim Ahmed
- * Email          : tanzim.ahmed1@g.bracu.ac.bd
- * ----------------------
- * Last Modified  : Sat Jan 20 2024
- * Modified By    : Tanzim Ahmed
- * ------------------------
- */
-const createTypography = (fontSize, fontWeight, lineHeight) => ({
-  fontFamily: ["Nunito", "sans-serif"].join(","),
-  fontSize,
-  fontWeight,
-  lineHeight,
-  letterSpacing: "0em",
-  display: "block",
-});
+// ----------------------------------------------------------------------
 
-const typography = {
-  cst_h1_Bold: createTypography("40px", "700", "48px"),
-  cst_h2_Bold: createTypography("36px", "700", "44px"),
-  cst_h3_Bold: createTypography("32px", "700", "40px"),
-  cst_h4_Bold: createTypography("24px", "700", "32px"),
-  cst_h5_Bold: createTypography("20px", "700", "28px"),
-  cst_h6_Bold: createTypography("16px", "700", "28px"),
-  cst_h7_Bold: createTypography("12px", "700", "28px"),
+export function remToPx(value) {
+  return Math.round(parseFloat(value) * 16);
+}
 
-  cst_h1_semiBold: createTypography("40px", "600", "48px"),
-  cst_h2_semiBold: createTypography("36px", "600", "44px"),
-  cst_h3_semiBold: createTypography("32px", "600", "40px"),
-  cst_h4_semiBold: createTypography("24px", "600", "30px"),
-  cst_h5_semiBold: createTypography("20px", "600", "28px"),
-  cst_h6_semiBold: createTypography("16px", "600", "28px"),
-  cst_h7_semiBold: createTypography("12px", "600", "28px"),
+export function pxToRem(value) {
+  return `${value / 16}rem`;
+}
 
-  cst_h1_medium: createTypography("40px", "500", "48px"),
-  cst_h2_medium: createTypography("36px", "500", "44px"),
-  cst_h3_medium: createTypography("32px", "500", "40px"),
-  cst_h4_medium: createTypography("24px", "500", "30px"),
-  cst_h5_medium: createTypography("20px", "500", "28px"),
-  cst_h6_medium: createTypography("16px", "500", "24px"),
-  cst_h7_medium: createTypography("12px", "500", "20px"),
+export function responsiveFontSizes({ sm, md, lg }) {
+  return {
+    '@media (min-width:600px)': {
+      fontSize: pxToRem(sm),
+    },
+    '@media (min-width:900px)': {
+      fontSize: pxToRem(md),
+    },
+    '@media (min-width:1200px)': {
+      fontSize: pxToRem(lg),
+    },
+  };
+}
 
-  cst_h1: createTypography("40px", "400", "48px"),
-  cst_h2: createTypography("36px", "400", "44px"),
-  cst_h3: createTypography("32px", "400", "40px"),
-  cst_h4: createTypography("24px", "400", "30px"),
-  cst_h5: createTypography("20px", "400", "28px"),
-  cst_h6: createTypography("16px", "400", "24px"),
-  cst_h7: createTypography("12px", "400", "20px"),
-  cst_h8: createTypography("12px", "400", "16px"),
+export const primaryFont = 'Public Sans, sans-serif';
+export const secondaryFont = 'Barlow, sans-serif';
 
-  cst_p1_semiBold: createTypography("18px", "600", "28px"),
-  cst_p2_semiBold: createTypography("16px", "600", "24px"),
-  cst_p3_semiBold: createTypography("14px", "600", "20px"),
-  cst_p4_semiBold: createTypography("12px", "600", "18px"),
-  cst_p4_semiBold_2: createTypography("12px", "600", "16px"),
+// ----------------------------------------------------------------------
 
-  cst_p1_medium: createTypography("18px", "500", "28px"),
-  cst_p2_medium: createTypography("16px", "500", "24px"),
-  cst_p3_medium: createTypography("14px", "500", "20px"),
-  cst_p3_medium_2: createTypography("14px", "500", "24px"),
-  cst_p3_medium_3: createTypography("14px", "500", "16px"),
-  cst_p4_medium: createTypography("12px", "500", "18px"),
-  cst_p5_medium: createTypography("10px", "500", "12px"),
-
-  cst_p1: createTypography("18px", "400", "28px"),
-  cst_p2: createTypography("16px", "400", "24px"),
-  cst_p3: createTypography("14px", "400", "20px"),
-  cst_p4: createTypography("12px", "400", "18px"),
-  cst_p5: createTypography("10px", "400", "16px"),
+export const typography = {
+  fontFamily: primaryFont,
+  fontSecondaryFamily: secondaryFont,
+  fontWeightRegular: 400,
+  fontWeightMedium: 500,
+  fontWeightSemiBold: 600,
+  fontWeightBold: 700,
+  h1: {
+    fontWeight: 800,
+    lineHeight: 80 / 64,
+    fontSize: pxToRem(40),
+    ...responsiveFontSizes({ sm: 52, md: 58, lg: 64 }),
+  },
+  h2: {
+    fontWeight: 800,
+    lineHeight: 64 / 48,
+    fontSize: pxToRem(32),
+    ...responsiveFontSizes({ sm: 40, md: 44, lg: 48 }),
+  },
+  h3: {
+    fontWeight: 700,
+    lineHeight: 1.5,
+    fontSize: pxToRem(24),
+    ...responsiveFontSizes({ sm: 26, md: 30, lg: 32 }),
+  },
+  h4: {
+    fontWeight: 700,
+    lineHeight: 1.5,
+    fontSize: pxToRem(20),
+    ...responsiveFontSizes({ sm: 20, md: 24, lg: 24 }),
+  },
+  h5: {
+    fontWeight: 700,
+    lineHeight: 1.5,
+    fontSize: pxToRem(18),
+    ...responsiveFontSizes({ sm: 19, md: 20, lg: 20 }),
+  },
+  h6: {
+    fontWeight: 700,
+    lineHeight: 28 / 18,
+    fontSize: pxToRem(17),
+    ...responsiveFontSizes({ sm: 18, md: 18, lg: 18 }),
+  },
+  subtitle1: {
+    fontWeight: 600,
+    lineHeight: 1.5,
+    fontSize: pxToRem(16),
+  },
+  subtitle2: {
+    fontWeight: 600,
+    lineHeight: 22 / 14,
+    fontSize: pxToRem(14),
+  },
+  body1: {
+    lineHeight: 1.5,
+    fontSize: pxToRem(16),
+  },
+  body2: {
+    lineHeight: 22 / 14,
+    fontSize: pxToRem(14),
+  },
+  caption: {
+    lineHeight: 1.5,
+    fontSize: pxToRem(12),
+  },
+  overline: {
+    fontWeight: 700,
+    lineHeight: 1.5,
+    fontSize: pxToRem(12),
+    textTransform: 'uppercase',
+  },
+  button: {
+    fontWeight: 700,
+    lineHeight: 24 / 14,
+    fontSize: pxToRem(14),
+    textTransform: 'unset',
+  },
 };
-
-export default typography;

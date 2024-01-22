@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material";
 import { lightColors } from "./lightColor";
-import typography from "./typography";
+import typography from "./typographyold";
 
 const lightTheme = createTheme({
   palette: {
