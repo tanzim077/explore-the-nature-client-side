@@ -27,11 +27,28 @@ const Home = () => {
 
         <br />
         <Grid container gap={0} spacing={0}>
-          {events?.map((event) => (
-            <Grid xs={3} key={event._id} sx={{ display: "flex", justifyContent: "center", pb: 4 }}>
-              {isLoading ? <CardSkeleton /> : <EventCard event={event} />}
-            </Grid>
-          ))}
+          {isLoading ? (
+            <>
+              <Grid xs={3}>
+                <CardSkeleton />
+              </Grid>
+              <Grid xs={3}>
+                <CardSkeleton />
+              </Grid>
+              <Grid xs={3}>
+                <CardSkeleton />
+              </Grid>
+              <Grid xs={3}>
+                <CardSkeleton />
+              </Grid>
+            </>
+          ) : (
+            events?.map((event) => (
+              <Grid xs={3} key={event._id} sx={{ display: "flex", justifyContent: "center", pb: 4 }}>
+                <EventCard event={event} />
+              </Grid>
+            ))
+          )}
         </Grid>
       </Box>
       <br />

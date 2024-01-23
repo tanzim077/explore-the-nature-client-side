@@ -1,4 +1,13 @@
 /*
+ * Filename: /home/tanzim/workstation/Personal/showcase project/Old projects/explore-the-nature-client-side/src/component/primary/SignUp/SignupFormView.jsx
+ * Path: /home/tanzim/workstation/Personal/showcase project/Old projects/explore-the-nature-client-side
+ * Created Date: Tuesday, January 23rd 2024, 8:59:32 pm
+ * Author: Tanzim Ahmed
+ *
+ * Copyright (c) 2024 Tanzim Ahmed
+ */
+
+/*
  * Filename: /home/tanzim/workstation/Personal/showcase project/Old projects/explore-the-nature-client-side/src/component/primary/SignUp/SignUp.jsx
  * Path: /home/tanzim/workstation/Personal/showcase project/Old projects/explore-the-nature-client-side
  * Created Date: Sunday, January 21st 2024, 3:36:26 pm
@@ -10,25 +19,28 @@
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import { createTheme } from "@mui/material/styles";
 import * as React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import LoadingButton from "@mui/lab/LoadingButton";
+import Card from "@mui/material/Card";
 import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import Stack from "@mui/material/Stack";
-import { useTheme } from "@mui/material/styles";
+import { alpha, useTheme } from "@mui/material/styles";
 
 import { useRouter } from "../../../router/hooks";
 import Iconify from "../../iconify/iconify";
+import Logo from "../../logo";
+
+import { bgGradient } from "../../../theme/css";
 
 // TODO remove, this demo shouldn't need to reset the theme.
-import { Helmet } from "react-helmet-async";
-import SignupFormView from "./SignupFormView";
 
-export default function SignUp() {
+export default function SignupFormView() {
   const defaultTheme = createTheme();
 
   const navigate = useNavigate();
@@ -93,13 +105,47 @@ export default function SignUp() {
   );
 
   return (
-    <>
-      <Helmet>
-        <title> Sign in | Explore the Nature </title>
-      </Helmet>
-      <Box sx={{ py: "5%" }}>
-        <SignupFormView />
-      </Box>
-    </>
+    <Box
+      sx={{
+        ...bgGradient({
+          color: alpha(theme.palette.background.default, 0.9),
+          imgUrl: "/assets/background/overlay_4.jpg",
+        }),
+        height: 1,
+      }}
+    >
+      <Logo
+        sx={{
+          position: "fixed",
+          top: { xs: 16, md: 24 },
+          left: { xs: 16, md: 24 },
+        }}
+      />
+
+      <Stack alignItems="center" justifyContent="center" sx={{ height: 1 }}>
+        <Card
+          sx={{
+            p: 5,
+            width: 1,
+            maxWidth: 420,
+          }}
+        >
+          <Typography variant="cst_h4">Create an Account</Typography>
+          <Typography variant="body2" sx={{ mt: 2, mb: 5 }}>
+            Already have an account?
+            <Link onClick={() => navigate("/sign-in")} variant="subtitle2" sx={{ ml: 0.5, cursor: "pointer" }}>
+              Login
+            </Link>
+          </Typography>
+          {/* <SocialMediaLogin/>
+          <Divider sx={{ my: 3 }}>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+              OR
+            </Typography>
+          </Divider> */}
+          {renderForm}
+        </Card>
+      </Stack>
+    </Box>
   );
 }
