@@ -12,7 +12,6 @@ import React from "react";
 import { useGetAllEventsQuery } from "../../../redux/api/event.api.slice";
 import EventCard from "../../shared/EventCard/EventCard";
 import Footer from "../../shared/Footer/Footer";
-import CardSkeleton from "../../shared/Skeleton/CardSkeleton";
 import AboutUs from "../AboutUs/AboutUs";
 const Home = () => {
   const { data: events, isLoading, isError } = useGetAllEventsQuery();
@@ -21,39 +20,22 @@ const Home = () => {
     <>
       <br />
       <Box>
-        <Typography variant="cst_h3" textAlign="center">
+        <Typography variant="h3" textAlign="center">
           All Upcoming Events
         </Typography>
 
         <br />
-        <Grid container gap={0} spacing={0}>
-          {isLoading ? (
-            <>
-              <Grid xs={3}>
-                <CardSkeleton />
-              </Grid>
-              <Grid xs={3}>
-                <CardSkeleton />
-              </Grid>
-              <Grid xs={3}>
-                <CardSkeleton />
-              </Grid>
-              <Grid xs={3}>
-                <CardSkeleton />
-              </Grid>
-            </>
-          ) : (
-            events?.map((event) => (
-              <Grid xs={3} key={event._id} sx={{ display: "flex", justifyContent: "center", pb: 4 }}>
-                <EventCard event={event} />
-              </Grid>
-            ))
-          )}
-        </Grid>
+        <Box sx={{ px: 12 }}>
+          <Grid container spacing={3}>
+            {events?.map((event, index) => (
+              <EventCard key={event.id} event={event} index={index} />
+            ))}
+          </Grid>
+        </Box>
       </Box>
       <br />
       <Box>
-        <Typography variant="cst_h3" textAlign="center">
+        <Typography variant="h3" textAlign="center">
           About Us
         </Typography>
         <br />

@@ -13,11 +13,11 @@ const EventDetails = ({ event }) => {
   return (
     <>
       <Box sx={{ px: 6, py: 2 }}>
-        <Typography variant="cst_h4">Event Details</Typography>
+        <Typography variant="h4">Event Details</Typography>
         <br />
         <Box sx={{ display: "flex", justifyContent: "space-between", pr: 20 }}>
-          <Typography variant="cst_h5">Event Name: {event}</Typography>
-          <Typography variant="cst_h5">Event Date: </Typography>
+          <Typography variant="h5">Event Name: {event}</Typography>
+          <Typography variant="h5">Event Date: </Typography>
         </Box>
         <br />
         <Box sx={{ display: "flex", justifyContent: "", gap: 12 }}>
@@ -35,14 +35,14 @@ const EventDetails = ({ event }) => {
             }}
           >
             <Box>
-              <Typography variant="cst_h5">Event Description: </Typography>
-              <Typography variant="cst_h5">Event Time:</Typography>
-              <Typography variant="cst_h5">Event Location: </Typography>
-              <Typography variant="cst_h5">Event Organizer: </Typography>
-              <Typography variant="cst_h5">Event Contact: </Typography>
-              <Typography variant="cst_h5">Event Contact Email: </Typography>
-              <Typography variant="cst_h5">Event Contact Phone: </Typography>
-              <Typography variant="cst_h5">Event Contact Website: </Typography>
+              <Typography variant="h5">Event Description: </Typography>
+              <Typography variant="h5">Event Time:</Typography>
+              <Typography variant="h5">Event Location: </Typography>
+              <Typography variant="h5">Event Organizer: </Typography>
+              <Typography variant="h5">Event Contact: </Typography>
+              <Typography variant="h5">Event Contact Email: </Typography>
+              <Typography variant="h5">Event Contact Phone: </Typography>
+              <Typography variant="h5">Event Contact Website: </Typography>
             </Box>
             <br />
             <Box>
@@ -51,17 +51,17 @@ const EventDetails = ({ event }) => {
           </Box>
         </Box>
         <br />
-        
-        <Box sx={{pr:120}}>
-        <Typography variant="cst_h5">Event Details: </Typography>
-        <Typography variant="cst_h6">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat dicta molestiae perspiciatis atque repellat
-          tenetur excepturi. A tempora quaerat commodi ex quisquam, tempore, nostrum cum reiciendis hic dolor enim
-          blanditiis rerum laboriosam amet itaque totam porro sit in provident minus! Veritatis aut, pariatur nam sequi
-          iusto vel deserunt. Nostrum, optio
-        </Typography>
+
+        <Box sx={{ pr: 120 }}>
+          <Typography variant="h5">Event Details: </Typography>
+          <Typography variant="h6">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat dicta molestiae perspiciatis atque
+            repellat tenetur excepturi. A tempora quaerat commodi ex quisquam, tempore, nostrum cum reiciendis hic dolor
+            enim blanditiis rerum laboriosam amet itaque totam porro sit in provident minus! Veritatis aut, pariatur nam
+            sequi iusto vel deserunt. Nostrum, optio
+          </Typography>
         </Box>
-          
+
         <br />
       </Box>
     </>

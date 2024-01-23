@@ -194,7 +194,7 @@ const lightTheme = createTheme({
         root: {
           borderRadius: "4px",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.08)",
-          backgroundColor: "#e0f0ea",
+          // backgroundColor: "#e0f0ea",
         },
       },
     },
