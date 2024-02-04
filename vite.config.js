@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3000,
   },
   optimizeDeps: {
-    include: ["@emotion/react", "@emotion/styled", "@mui/material"],
+    include: ["@emotion/react", "@emotion/styled", "@mui/material", "@mui/material/Tooltip"],
   },
   plugins: [
     react({

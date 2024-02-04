@@ -6,24 +6,30 @@
  *
  * Copyright (c) 2024 Tanzim Ahmed
  */
-import CallIcon from "@mui/icons-material/Call";
-import MailIcon from "@mui/icons-material/Mail";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import {
-  Box,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-} from "@mui/material";
+import { Divider } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import Page from "../../shared/Page/page";
+import AboutHero from "./AboutHero";
+import AboutVision from "./AboutVision";
+import AboutWhat from "./AboutWhat";
+
 const AboutUs = () => {
+  const RootStyle = styled(Page)(({ theme }) => ({
+    paddingTop: theme.spacing(8),
+    [theme.breakpoints.up("md")]: {
+      paddingTop: theme.spacing(11),
+    },
+  }));
   return (
     <>
-      <Box
+      <RootStyle title="About us | Minimal-UI">
+        <AboutHero />
+        <AboutWhat />
+        <AboutVision />
+        <Divider orientation="vertical" sx={{ my: 10, mx: "auto", width: 2, height: 40 }} />
+        {/* <AboutTeam /> */}
+      </RootStyle>
+      {/* <Box
         sx={{
           my: 5,
           textAlign: "center",
@@ -113,7 +119,7 @@ const AboutUs = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Box>
+      </Box> */}
     </>
   );
 };
