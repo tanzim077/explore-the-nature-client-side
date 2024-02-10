@@ -12,12 +12,12 @@ import React from "react";
 import { useGetAllEventsQuery } from "../../../redux/api/event.api.slice";
 import EventCard from "../../shared/EventCard/EventCard";
 import Footer from "../../shared/Footer/Footer";
-import AboutUs from "../AboutUs/AboutUs";
+import AboutUs, { RootStyle } from "../AboutUs/AboutUs";
 const Home = () => {
   const { data: events, isLoading, isError } = useGetAllEventsQuery();
 
   return (
-    <>
+    <RootStyle title="Home | Explore the Nature">
       <br />
       <Box>
         <Typography variant="h3" textAlign="center">
@@ -39,9 +39,7 @@ const Home = () => {
           About Us
         </Typography>
         <br />
-        <Box sx={{ px: 6 }}>
-          <AboutUs />
-        </Box>
+        <Box sx={{ px: 6 }}>{/* <AboutUs /> */}</Box>
       </Box>
       <br />
       <Box>
@@ -50,7 +48,7 @@ const Home = () => {
           <Footer />
         </Box>
       </Box>
-    </>
+    </RootStyle>
   );
 };
 

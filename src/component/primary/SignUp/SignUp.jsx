@@ -95,7 +95,7 @@ export default function SignUp() {
   return (
     <>
       <Helmet>
-        <title> Sign in | Explore the Nature </title>
+        <title> Sign up | Explore the Nature </title>
       </Helmet>
       <Box sx={{ py: "5%" }}>
         <SignupFormView />

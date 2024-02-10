@@ -13,16 +13,16 @@ import AboutHero from "./AboutHero";
 import AboutVision from "./AboutVision";
 import AboutWhat from "./AboutWhat";
 
+export const RootStyle = styled(Page)(({ theme }) => ({
+  paddingTop: theme.spacing(8),
+  [theme.breakpoints.up("md")]: {
+    paddingTop: theme.spacing(11),
+  },
+}));
 const AboutUs = () => {
-  const RootStyle = styled(Page)(({ theme }) => ({
-    paddingTop: theme.spacing(8),
-    [theme.breakpoints.up("md")]: {
-      paddingTop: theme.spacing(11),
-    },
-  }));
   return (
     <>
-      <RootStyle title="About us | Minimal-UI">
+      <RootStyle title="About us | Explore the Nature">
         <AboutHero />
         <AboutWhat />
         <AboutVision />
