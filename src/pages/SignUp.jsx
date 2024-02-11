@@ -21,12 +21,13 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Stack from "@mui/material/Stack";
 import { useTheme } from "@mui/material/styles";
 
-import { useRouter } from "../../../router/hooks";
-import Iconify from "../../iconify/iconify";
+import { useRouter } from "../router/hooks";
+// import Iconify from "../../iconify/iconify";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 import { Helmet } from "react-helmet-async";
-import SignupFormView from "./SignupFormView";
+import SignupFormView from "../component/primary/SignUp/SignupFormView";
+import Iconify from "../component/shared/iconify";
 
 export default function SignUp() {
   const defaultTheme = createTheme();

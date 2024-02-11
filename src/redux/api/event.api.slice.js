@@ -20,19 +20,22 @@ const eventsApi = apiSlice.injectEndpoints({
     getAllEvents: build.query({
       query: () => "/event/get-all-events",
     }),
+
     getEvent: build.query({
-      query: ({ id }) => `/event/get-event/:${id}`,
+      query: ({ id }) => `/event/get-event/${id}`,
     }),
+
     updateEvent: build.mutation({
       query: ({ id, data }) => ({
-        url: `/event/update-event/:${id}`,
+        url: `/event/update-event/${id}`,
         method: "PATCH",
         body: data,
       }),
     }),
+
     deleteEvent: build.mutation({
       query: ({ id }) => ({
-        url: `/event/delete-event/:${id}`,
+        url: `/event/delete-event/${id}`,
         method: "DELETE",
       }),
     }),
@@ -40,4 +43,4 @@ const eventsApi = apiSlice.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetAllEventsQuery } = eventsApi;
+export const { useGetAllEventsQuery, useGetEventQuery } = eventsApi;

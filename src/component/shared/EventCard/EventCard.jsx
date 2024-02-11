@@ -22,8 +22,8 @@ import * as React from "react";
 
 import { fShortenNumber } from "../../../utils/format-number";
 import { fDate } from "../../../utils/format-time";
-import Iconify from "../../iconify/iconify";
-import SvgColor from "../../svg-color";
+import Iconify from "../iconify/iconify";
+import SvgColor from "../svg-color";
 
 export default function EventCard({ event, index }) {
   const navigate = useNavigate();

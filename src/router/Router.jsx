@@ -8,13 +8,14 @@
  */
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AboutUs from "../component/primary/AboutUs/AboutUs";
 import ErrorPage from "../component/primary/ErrorPage/ErrorPage";
-import EventDetails from "../component/primary/EventDetails/EventDetails";
-import Home from "../component/primary/Home/Home";
-import SignIn from "../component/primary/SignIn/SignIn";
-import SignUp from "../component/primary/SignUp/SignUp";
+import EventDetails from "../pages/EventDetails";
+import AboutUs from "../pages/AboutUs";
+
 import NavBar from "../component/shared/NavBar/NavBar";
+import Home from "../pages/Home";
+import SignIn from "../pages/SignIn";
+import SignUp from "../pages/SignUp";
 
 const Router = () => {
   // eslint-disable-next-line react/prop-types

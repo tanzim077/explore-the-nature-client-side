@@ -1,13 +1,4 @@
 /*
- * Filename: /home/tanzim/workstation/Personal/showcase project/Old projects/explore-the-nature-client-side/src/component/primary/SignUp/SignupFormView.jsx
- * Path: /home/tanzim/workstation/Personal/showcase project/Old projects/explore-the-nature-client-side
- * Created Date: Tuesday, January 23rd 2024, 8:59:32 pm
- * Author: Tanzim Ahmed
- *
- * Copyright (c) 2024 Tanzim Ahmed
- */
-
-/*
  * Filename: /home/tanzim/workstation/Personal/showcase project/Old projects/explore-the-nature-client-side/src/component/primary/SignUp/SignUp.jsx
  * Path: /home/tanzim/workstation/Personal/showcase project/Old projects/explore-the-nature-client-side
  * Created Date: Sunday, January 21st 2024, 3:36:26 pm
@@ -33,7 +24,8 @@ import Stack from "@mui/material/Stack";
 import { alpha, useTheme } from "@mui/material/styles";
 
 import { useRouter } from "../../../router/hooks";
-import Iconify from "../../iconify/iconify";
+import Iconify from "../../shared/iconify";
+
 import Logo from "../../logo";
 
 import { bgGradient } from "../../../theme/css";

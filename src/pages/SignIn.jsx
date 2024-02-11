@@ -14,7 +14,7 @@ import { createTheme } from "@mui/material/styles";
 import * as React from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
-import SignInFormView from "./SignInFormView";
+import SignInFormView from "../component/primary/SignIn/SignInFormView";
 
 function Copyright(props) {
   return (

@@ -12,7 +12,6 @@ import { useState } from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import Link from "@mui/material/Link";
@@ -22,12 +21,12 @@ import Typography from "@mui/material/Typography";
 import { alpha, useTheme } from "@mui/material/styles";
 
 import { useRouter } from "../../../router/hooks";
-import Iconify from "../../iconify/iconify";
+
 import Logo from "../../logo";
 
 import { useNavigate } from "react-router-dom";
 import { bgGradient } from "../../../theme/css";
-import SocialMediaLogin from "./SocialMediaLogin";
+import Iconify from "../../shared/iconify/iconify";
 
 // ----------------------------------------------------------------------
 

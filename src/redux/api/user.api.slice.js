@@ -16,7 +16,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:9999/api/v1/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_SERVER_URL}/api/v1/` }),
+
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: () => "users/get-all-users",

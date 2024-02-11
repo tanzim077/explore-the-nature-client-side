@@ -9,10 +9,10 @@
 import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import React from "react";
-import { useGetAllEventsQuery } from "../../../redux/api/event.api.slice";
-import EventCard from "../../shared/EventCard/EventCard";
-import Footer from "../../shared/Footer/Footer";
-import AboutUs, { RootStyle } from "../AboutUs/AboutUs";
+import EventCard from "../component/shared/EventCard/EventCard";
+import Footer from "../component/shared/Footer/Footer";
+import { useGetAllEventsQuery } from "../redux/api/event.api.slice";
+import { RootStyle } from "./AboutUs";
 const Home = () => {
   const { data: events, isLoading, isError } = useGetAllEventsQuery();
 
@@ -27,9 +27,11 @@ const Home = () => {
         <br />
         <Box sx={{ px: 12 }}>
           <Grid container spacing={3}>
-            {events?.map((event, index) => (
-              <EventCard key={event.id} event={event} index={index} />
-            ))}
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : (
+              events?.map((event, index) => <EventCard key={event.id} event={event} index={index} />)
+            )}
           </Grid>
         </Box>
       </Box>
