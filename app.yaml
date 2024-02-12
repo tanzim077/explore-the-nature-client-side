@@ -6,3 +6,9 @@ handlers:
 - url: /.*
   static_files: dist/index.html
   upload: dist/index.html
+
+network:
+  forwarded_ports:
+  - 65080
+  instance_tag: websocket
+  session_affinity: true
