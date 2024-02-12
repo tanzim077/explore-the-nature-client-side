@@ -1,13 +1,14 @@
-import { CssBaseline } from "@mui/material";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import { Provider } from "react-redux";
+import io from "socket.io-client";
+import App from "./App.jsx";
 import "./index.css";
 import { store } from "./redux/store/store.js";
-import Router from "./router/Router.jsx";
-import ThemeProviderWrapper from "./theme/ThemeProviderWrapper.jsx";
 import ThemeProvider from "./theme/index.jsx";
+
+export const socket = io(import.meta.env.VITE_APP_SOCKET_SERVER_URL);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HelmetProvider>
@@ -15,8 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Provider store={store}>
         {/* <ThemeProviderWrapper> */}
         <ThemeProvider>
-          {/* <CssBaseline /> */}
-          <Router>{/* <App /> */}</Router>
+          <App />
         </ThemeProvider>
         {/* </ThemeProviderWrapper> */}
       </Provider>

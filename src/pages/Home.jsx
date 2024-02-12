@@ -6,18 +6,33 @@
  *
  * Copyright (c) 2024 Tanzim Ahmed
  */
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import EventCard from "../component/shared/EventCard/EventCard";
 import Footer from "../component/shared/Footer/Footer";
-import { useGetAllEventsQuery } from "../redux/api/event.api.slice";
+import { useGetAllEventsQuery, useTestEventMutation } from "../redux/api/event.api.slice";
+import { getAllNotifications } from "../redux/slices/notificationSlice";
 import { RootStyle } from "./AboutUs";
+
 const Home = () => {
   const { data: events, isLoading, isError } = useGetAllEventsQuery();
-
+  const [testEvent] = useTestEventMutation();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllNotifications());
+  }, []);
+  const handleSubmit = () => {
+    testEvent({});
+  };
   return (
     <RootStyle title="Home | Explore the Nature">
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Button variant="outlined" color="primary" onClick={handleSubmit}>
+          Test notification
+        </Button>
+      </Box>
       <br />
       <Box>
         <Typography variant="h3" textAlign="center">
@@ -30,7 +45,7 @@ const Home = () => {
             {isLoading ? (
               <p>Loading...</p>
             ) : (
-              events?.map((event, index) => <EventCard key={event.id} event={event} index={index} />)
+              events?.map((event, index) => <EventCard key={event._id} event={event} index={index} />)
             )}
           </Grid>
         </Box>

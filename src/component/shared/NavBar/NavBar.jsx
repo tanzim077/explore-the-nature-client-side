@@ -6,6 +6,7 @@
  *
  * Copyright (c) 2024 Tanzim Ahmed
  */
+import { useSelector } from "react-redux";
 
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
@@ -78,6 +79,8 @@ const NavLink = styled(Typography)(({ theme }) => ({
 
 export default function NavBar() {
   const navigate = useNavigate();
+  const { notifications } = useSelector((state) => state.notification);
+  console.log("🚀 ~ NavBar ~ notifications:", notifications);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -144,7 +147,7 @@ export default function NavBar() {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+          <Badge badgeContent={notifications.length} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
@@ -205,7 +208,10 @@ export default function NavBar() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {true ? ( //TODO login condition
-              <Box sx={{ display: "flex" }}>
+              <Box sx={{ display: "flex", gap: 2 }}>
+                <Badge badgeContent={notifications.length} color="primary">
+                  <MailIcon color="action" />
+                </Badge>
                 <NavLink variant="cst_h6" onClick={() => navigate("/sign-in")}>
                   Sign In
                 </NavLink>

@@ -18,11 +18,22 @@ import { apiSlice } from "./user.api.slice";
 const eventsApi = apiSlice.injectEndpoints({
   endpoints: (build) => ({
     getAllEvents: build.query({
-      query: () => "/event/get-all-events",
+      query: () => "event/get-all-events",
     }),
 
     getEvent: build.query({
-      query: ({ id }) => `/event/get-event/${id}`,
+      query: ({ id }) => `event/get-event/${id}`,
+    }),
+    getAllNotifications: build.query({
+      query: () => `event/get-all-notifications/`,
+    }),
+
+    testEvent: build.mutation({
+      query: ({ data }) => ({
+        url: `/event/test-event/`,
+        method: "POST",
+        body: data,
+      }),
     }),
 
     updateEvent: build.mutation({
@@ -43,4 +54,4 @@ const eventsApi = apiSlice.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetAllEventsQuery, useGetEventQuery } = eventsApi;
+export const { useGetAllEventsQuery, useGetEventQuery, useTestEventMutation } = eventsApi;

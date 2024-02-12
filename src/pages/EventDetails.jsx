@@ -15,39 +15,25 @@ import { fDateTime } from "../utils/format-time";
 const EventDetails = () => {
   let { id } = useParams();
   const { data: event, isLoading, isError } = useGetEventQuery({ id });
-  console.log("🚀 ~ EventDetails ~ event:", event);
-  const {
-    _id,
-    title,
-    description,
-    startDateAndTime,
-    endDateAndTime,
-    eventStatus,
-    joinedUser,
-    eventCost,
-    coverImages,
-    photos,
-    createdBy,
-    createdAt,
-    updatedAt,
-  } = event;
+
   return (
     !isLoading && (
       <>
         <Box sx={{ px: 16, py: 2 }}>
-          <Typography variant="h4">Details of {title}</Typography>
+          <Typography variant="h4">Details of {event.title}</Typography>
           <br />
           <Box sx={{ display: "flex", justifyContent: "space-between", pr: 20 }}>
-            <Typography variant="h5">
-              Event Name: {title}
-              {event.title}
-            </Typography>
-            <Typography variant="h5">Event Date: {fDateTime(startDateAndTime)}</Typography>
+            <Typography variant="h5">Event Name: {event.title}</Typography>
+            <Typography variant="h5">Event Date: {fDateTime(event.startDateAndTime)}</Typography>
           </Box>
           <br />
 
           <Box sx={{ display: "flex", justifyContent: "", gap: 12 }}>
-            <img src={coverImages[0]} alt="test" style={{ width: "680px", height: "550px", borderRadius: "10px" }} />
+            <img
+              src={event.coverImages[0]}
+              alt="test"
+              style={{ width: "680px", height: "550px", borderRadius: "10px" }}
+            />
             <Box
               sx={{
                 display: "flex",
@@ -57,9 +43,9 @@ const EventDetails = () => {
               }}
             >
               <Box>
-                <Typography variant="h5">Event Description:{description} </Typography>
+                <Typography variant="h5">Event Description:{event.description} </Typography>
                 <Typography variant="h5">
-                  Event Time: {fDateTime(startDateAndTime)} to {fDateTime(endDateAndTime)}
+                  Event Time: {fDateTime(event.startDateAndTime)} to {fDateTime(event.endDateAndTime)}
                 </Typography>
                 <Typography variant="h5">Event Location: </Typography>
                 <Typography variant="h5">Event Organizer: </Typography>
