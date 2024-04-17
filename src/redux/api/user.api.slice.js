@@ -12,17 +12,61 @@
  * Modified By    : Tanzim Ahmed
  * ------------------------
  */
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+// Function to retrieve the 'token' cookie value
+function getTokenFromCookie() {
+  const cookies = document.cookie.split(';');
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+    if (cookie.startsWith('token=')) {
+      return cookie.substring('token='.length);
+    }
+  }
+  return null; // Return null if the 'token' cookie is not found
+}
+const tk = getTokenFromCookie();
+// console.log('🚀 ~ tk:', tk);
 
 export const apiSlice = createApi({
-  reducerPath: "api",
+  reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_SERVER_URL}/api/v1/` }),
-
+  credentials: 'include',
+  prepareHeaders: (headers, { getState }) => {
+    const token = getState().auth.token;
+    if (token) {
+      headers.set('Authorization', `Bearer ${token}`);
+    }
+    return headers;
+  },
   endpoints: (builder) => ({
     getUsers: builder.query({
-      query: () => "users/get-all-users",
+      query: () => 'users/get-all-users',
+    }),
+    getUserByToken: builder.query({
+      query: () => 'users/get-user-by-token',
+      headers: {
+        // Set the token in the Authorization header
+        Authorization: `Bearer ${tk}`,
+        'Content-Type': 'application/json', // Add other headers if needed
+      },
+    }),
+    createUser: builder.mutation({
+      query: (body) => ({
+        url: 'users/create-user',
+        method: 'POST',
+        body,
+      }),
+    }),
+    login: builder.mutation({
+      query: (body) => ({
+        url: 'users/log-in',
+        method: 'POST',
+        body,
+        credentials: 'include',
+      }),
     }),
   }),
 });
 
-export const { useGetUsersQuery } = apiSlice;
+export const { useGetUsersQuery, useGetUserByTokenQuery, useCreateUserMutation, useLoginMutation } = apiSlice;

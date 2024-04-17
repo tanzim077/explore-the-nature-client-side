@@ -7,92 +7,119 @@
  * Copyright (c) 2024 Tanzim Ahmed
  */
 
-import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import { createTheme } from "@mui/material/styles";
-import * as React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
+import { createTheme } from '@mui/material/styles';
+import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import LoadingButton from "@mui/lab/LoadingButton";
-import Card from "@mui/material/Card";
-import IconButton from "@mui/material/IconButton";
-import InputAdornment from "@mui/material/InputAdornment";
-import Stack from "@mui/material/Stack";
-import { alpha, useTheme } from "@mui/material/styles";
+import LoadingButton from '@mui/lab/LoadingButton';
+import Card from '@mui/material/Card';
+import Stack from '@mui/material/Stack';
+import { alpha, useTheme } from '@mui/material/styles';
 
-import { useRouter } from "../../../router/hooks";
-import Iconify from "../../shared/iconify";
-
-import Logo from "../../logo";
-
-import { bgGradient } from "../../../theme/css";
+import { useForm } from 'react-hook-form';
+import { useCreateUserMutation } from '../../../redux/api/user.api.slice';
+import { bgGradient } from '../../../theme/css';
+import FormInput from '../../shared/formInput';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
 export default function SignupFormView() {
   const defaultTheme = createTheme();
-
+  const [createUser] = useCreateUserMutation();
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const FORM_SCHEMA = {
+    name: { required: 'Full Name is required' },
+    email: { required: 'Email is required' },
+    password: {
+      required: 'Password is required',
+      minLength: {
+        value: 6,
+        message: 'Very short password',
+      },
+    },
   };
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      name: '',
+      email: '',
+      password: '',
+    },
+  });
 
   const theme = useTheme();
 
-  const router = useRouter();
-
-  const [showPassword, setShowPassword] = useState(false);
-
-  const handleClick = () => {
-    router.push("/dashboard");
+  const onSubmit = (data) => {
+    console.log(data);
+    createUser(data);
   };
 
   const renderForm = (
     <>
-      <Stack spacing={3}>
-        <TextField name="name" label="Full Name" />
+      <form autoComplete='on' onSubmit={handleSubmit(onSubmit)}>
+        <Stack spacing={3}>
+          <FormInput
+            margin='dense'
+            name='name'
+            control={control}
+            rules={FORM_SCHEMA.name}
+            errors={errors}
+            label='Full Name'
+            fullWidth
+          />
+          <FormInput
+            type='email'
+            margin='dense'
+            name='email'
+            control={control}
+            rules={FORM_SCHEMA.email}
+            errors={errors}
+            label='Email'
+            fullWidth
+          />
+          <FormInput
+            type='password'
+            margin='dense'
+            name='password'
+            control={control}
+            rules={FORM_SCHEMA.password}
+            errors={errors}
+            label='Password'
+            fullWidth
+          />
+        </Stack>
 
-        <TextField name="email" label="Email address" />
+        <Stack direction='row' alignItems='center' justifyContent='flex-end' sx={{ my: 3 }}>
+          <Link
+            onClick={() => navigate('/forget-password')}
+            variant='subtitle2'
+            underline='hover'
+            sx={{ cursor: 'pointer' }}
+          >
+            Forgot password?
+          </Link>
+        </Stack>
 
-        <TextField
-          name="password"
-          label="Password"
-          type={showPassword ? "text" : "password"}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                  <Iconify icon={showPassword ? "eva:eye-fill" : "eva:eye-off-fill"} />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-      </Stack>
-
-      <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ my: 3 }}>
-        <Link
-          onClick={() => navigate("/forget-password")}
-          variant="subtitle2"
-          underline="hover"
-          sx={{ cursor: "pointer" }}
+        <LoadingButton
+          fullWidth
+          size='large'
+          type='submit'
+          variant='contained'
+          color='inherit'
+          // onClick={(e) => handleClick(e)}
         >
-          Forgot password?
-        </Link>
-      </Stack>
-
-      <LoadingButton fullWidth size="large" type="submit" variant="contained" color="inherit" onClick={handleClick}>
-        Signup
-      </LoadingButton>
+          Signup
+        </LoadingButton>
+      </form>
     </>
   );
 
@@ -101,20 +128,20 @@ export default function SignupFormView() {
       sx={{
         ...bgGradient({
           color: alpha(theme.palette.background.default, 0.9),
-          imgUrl: "/assets/background/overlay_4.jpg",
+          imgUrl: '/assets/background/overlay_42.jpg',
         }),
         height: 1,
       }}
     >
-      <Logo
+      {/* <Logo
         sx={{
           position: "fixed",
           top: { xs: 16, md: 24 },
           left: { xs: 16, md: 24 },
         }}
-      />
+      /> */}
 
-      <Stack alignItems="center" justifyContent="center" sx={{ height: 1 }}>
+      <Stack alignItems='center' justifyContent='center' sx={{ height: 1 }}>
         <Card
           sx={{
             p: 5,
@@ -122,10 +149,10 @@ export default function SignupFormView() {
             maxWidth: 420,
           }}
         >
-          <Typography variant="cst_h4">Create an Account</Typography>
-          <Typography variant="body2" sx={{ mt: 2, mb: 5 }}>
+          <Typography variant='cst_h4'>Create an Account</Typography>
+          <Typography variant='body2' sx={{ mt: 2, mb: 5 }}>
             Already have an account?
-            <Link onClick={() => navigate("/sign-in")} variant="subtitle2" sx={{ ml: 0.5, cursor: "pointer" }}>
+            <Link onClick={() => navigate('/sign-in')} variant='subtitle2' sx={{ ml: 0.5, cursor: 'pointer' }}>
               Login
             </Link>
           </Typography>

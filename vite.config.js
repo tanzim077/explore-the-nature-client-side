@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    port: 3000,
+    port: 5173,
   },
   optimizeDeps: {
     include: ["@emotion/react", "@emotion/styled", "@mui/material", "@mui/material/Tooltip"],

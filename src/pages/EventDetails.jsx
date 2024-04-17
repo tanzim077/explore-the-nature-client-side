@@ -6,13 +6,20 @@
  *
  * Copyright (c) 2024 Tanzim Ahmed
  */
+import EditIcon from "@mui/icons-material/Edit";
 import { Box, Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { useParams } from "react-router-dom";
+import Editor from "../component/Lexical/Editor";
 import { useGetEventQuery } from "../redux/api/event.api.slice";
 import { fDateTime } from "../utils/format-time";
+
 const EventDetails = () => {
+  const [isEdit, setIsEdit] = React.useState(false);
+  const handleEdit = () => {
+    setIsEdit(!isEdit);
+  };
   let { id } = useParams();
   const { data: event, isLoading, isError } = useGetEventQuery({ id });
 
@@ -63,13 +70,12 @@ const EventDetails = () => {
           <br />
 
           <Box sx={{ pr: 120 }}>
-            <Typography variant="h5">Event Details: </Typography>
-            <Typography variant="h6">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat dicta molestiae perspiciatis atque
-              repellat tenetur excepturi. A tempora quaerat commodi ex quisquam, tempore, nostrum cum reiciendis hic
-              dolor enim blanditiis rerum laboriosam amet itaque totam porro sit in provident minus! Veritatis aut,
-              pariatur nam sequi iusto vel deserunt. Nostrum, optio
+            <Typography variant="h5">
+              Event Details:
+              <EditIcon sx={{ cursor: "pointer" }} onClick={handleEdit} />
             </Typography>
+
+            {isEdit ? <Editor /> : <Typography variant="h6">{event.description}</Typography>}
           </Box>
 
           <br />
