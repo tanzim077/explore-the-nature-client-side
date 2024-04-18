@@ -6,16 +6,17 @@
  *
  * Copyright (c) 2024 Tanzim Ahmed
  */
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "../component/primary/ErrorPage/ErrorPage";
-import EventDetails from "../pages/EventDetails";
-import AboutUs from "../pages/AboutUs";
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ErrorPage from '../component/primary/ErrorPage/ErrorPage';
+import AboutUs from '../pages/AboutUs';
+import EventDetails from '../pages/EventDetails';
 
-import NavBar from "../component/shared/NavBar/NavBar";
-import Home from "../pages/Home";
-import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
+import NavBar from '../component/shared/NavBar/NavBar';
+import AllEvents from '../pages/AllEvents';
+import Home from '../pages/Home';
+import SignIn from '../pages/SignIn';
+import SignUp from '../pages/SignUp';
 
 const Router = () => {
   // eslint-disable-next-line react/prop-types
@@ -30,7 +31,7 @@ const Router = () => {
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
       element: (
         <WithNavBar>
           <Home />
@@ -38,7 +39,7 @@ const Router = () => {
       ),
     },
     {
-      path: "/about-us",
+      path: '/about-us',
       element: (
         <WithNavBar>
           <AboutUs />
@@ -46,7 +47,7 @@ const Router = () => {
       ),
     },
     {
-      path: "/sign-in",
+      path: '/sign-in',
       element: (
         <WithNavBar>
           <SignIn />
@@ -54,7 +55,7 @@ const Router = () => {
       ),
     },
     {
-      path: "/sign-up",
+      path: '/sign-up',
       element: (
         <WithNavBar>
           <SignUp />
@@ -62,7 +63,15 @@ const Router = () => {
       ),
     },
     {
-      path: "/event-details/:id",
+      path: '/all-events',
+      element: (
+        <WithNavBar>
+          <AllEvents />
+        </WithNavBar>
+      ),
+    },
+    {
+      path: '/event-details/:id',
       element: (
         <WithNavBar>
           <EventDetails />
@@ -70,7 +79,7 @@ const Router = () => {
       ),
     },
     {
-      path: "*",
+      path: '*',
       element: <ErrorPage />,
     },
   ]);

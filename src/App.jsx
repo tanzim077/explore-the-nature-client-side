@@ -20,8 +20,8 @@ function App() {
       dispatch,
       setNewNotification,
     });
-    const existed = Cookies.get('token');
-    console.log(existed);
+    // const existed = Cookies.get('token');
+    // console.log(existed);
     return () => {};
   }, []);
 

@@ -13,19 +13,10 @@
  * ------------------------
  */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import Cookies from 'js-cookie';
 
-// Function to retrieve the 'token' cookie value
-function getTokenFromCookie() {
-  const cookies = document.cookie.split(';');
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
-    if (cookie.startsWith('token=')) {
-      return cookie.substring('token='.length);
-    }
-  }
-  return null; // Return null if the 'token' cookie is not found
-}
-const tk = getTokenFromCookie();
+const token = Cookies.get('token');
+console.log(token);
 // console.log('🚀 ~ tk:', tk);
 
 export const apiSlice = createApi({
@@ -47,7 +38,7 @@ export const apiSlice = createApi({
       query: () => 'users/get-user-by-token',
       headers: {
         // Set the token in the Authorization header
-        Authorization: `Bearer ${tk}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json', // Add other headers if needed
       },
     }),
