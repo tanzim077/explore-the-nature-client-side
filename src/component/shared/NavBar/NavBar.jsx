@@ -152,16 +152,16 @@ export default function NavBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size='large' aria-label='show 4 new mails' color='inherit'>
-          <Badge badgeContent={notifications.length} color='error'>
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+          <Badge badgeContent={notifications.length} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
       </MenuItem>
       <MenuItem>
-        <IconButton size='large' aria-label='show 17 new notifications' color='inherit'>
-          <Badge badgeContent={17} color='error'>
+        <IconButton size="large" aria-label="show 17 new notifications" color="inherit">
+          <Badge badgeContent={17} color="error">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -169,11 +169,11 @@ export default function NavBar() {
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
-          size='large'
-          aria-label='account of current user'
-          aria-controls='primary-search-account-menu'
-          aria-haspopup='true'
-          color='inherit'
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
         >
           <AccountCircle />
         </IconButton>
@@ -184,30 +184,30 @@ export default function NavBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
+      <AppBar position="static">
         <Toolbar>
-          <IconButton size='large' edge='start' color='inherit' aria-label='open drawer' sx={{ mr: 2 }}>
+          <IconButton size="large" edge="start" color="inherit" aria-label="open drawer" sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' noWrap component='div' sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Typography variant="h6" noWrap component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>
             MUI
           </Typography>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase placeholder='Search…' inputProps={{ 'aria-label': 'search' }} />
+            <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: 'flex', gap: 3 }}>
-            <NavLink variant='cst_h6' onClick={() => navigate('/')}>
+            <NavLink variant="cst_h6" onClick={() => navigate('/')}>
               Home
             </NavLink>
-            <NavLink variant='cst_h6' onClick={() => navigate('/all-events')}>
+            <NavLink variant="cst_h6" onClick={() => navigate('/all-events')}>
               Events
             </NavLink>
-            <NavLink variant='cst_h6' onClick={() => navigate('/about-us')}>
-              About Us
+            <NavLink variant="cst_h6" onClick={() => navigate('/about-us')}>
+              Know About Us
             </NavLink>
           </Box>
           <Box sx={{ flexGrow: 1 }} />
@@ -215,23 +215,23 @@ export default function NavBar() {
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {!user ? ( //TODO login condition
               <Box sx={{ display: 'flex', gap: 2 }}>
-                <Badge badgeContent={notifications.length} color='primary'>
-                  <MailIcon color='action' />
+                <Badge badgeContent={notifications.length} color="primary">
+                  <MailIcon color="action" />
                 </Badge>
-                <NavLink variant='cst_h6' onClick={() => navigate('/sign-in')}>
+                <NavLink variant="cst_h6" onClick={() => navigate('/sign-in')}>
                   Sign In
                 </NavLink>
               </Box>
             ) : (
               <Box>
                 <IconButton
-                  size='large'
-                  edge='end'
-                  aria-label='account of current user'
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
                   aria-controls={menuId}
-                  aria-haspopup='true'
+                  aria-haspopup="true"
                   onClick={handleProfileMenuOpen}
-                  color='inherit'
+                  color="inherit"
                 >
                   <AccountCircle />
                 </IconButton>
@@ -240,12 +240,12 @@ export default function NavBar() {
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size='large'
-              aria-label='show more'
+              size="large"
+              aria-label="show more"
               aria-controls={mobileMenuId}
-              aria-haspopup='true'
+              aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              color='inherit'
+              color="inherit"
             >
               <MoreIcon />
             </IconButton>
